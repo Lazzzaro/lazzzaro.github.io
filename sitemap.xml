@@ -4,7 +4,14 @@
   <url>
     <loc>http://yoursite.com/guestbook/index.html</loc>
     
-    <lastmod>2020-05-12T13:22:57.364Z</lastmod>
+    <lastmod>2020-05-12T13:48:24.091Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2020-05-12T13:48:09.659Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/categories/index.html</loc>
     
     <lastmod>2020-05-06T11:43:15.674Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2020-05-06T11:43:05.857Z</lastmod>
     
   </url>
   
