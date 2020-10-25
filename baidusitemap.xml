@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lazzzaro.github.io/2020/08/17/web-CSRF/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/10/25/match-CTFshow-1024%E6%9D%AF/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
+    <lastmod>2020-10-25</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</loc>
+    <lastmod>2020-10-23</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/07/05/misc-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2020-10-21</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/15/web-RCE/</loc>
+    <lastmod>2020-10-16</lastmod>
+  </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/13/crypto-%E5%85%B6%E4%BB%96%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2020-10-15</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/16/web-SSTI/</loc>
+    <lastmod>2020-10-12</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
     <lastmod>2020-10-11</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/06/20/misc-%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/</loc>
     <lastmod>2020-10-11</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</loc>
-    <lastmod>2020-10-10</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/06/crypto-RSA/</loc>
     <lastmod>2020-10-08</lastmod>
@@ -19,16 +40,10 @@
     <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-09-21</lastmod>
   </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/16/web-SSTI/</loc>
-    <lastmod>2020-09-19</lastmod>
-  </url>  <url>
     <loc>https://lazzzaro.github.io/2020/06/14/crypto-%E8%87%AA%E5%8A%A8%E5%AF%86%E9%92%A5%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2020-09-19</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/24/misc-%E9%9B%B6%E5%AE%BD%E5%BA%A6%E5%AD%97%E7%AC%A6%E9%9A%90%E5%86%99/</loc>
-    <lastmod>2020-09-17</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/15/web-RCE/</loc>
     <lastmod>2020-09-17</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/12/reverse-%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
@@ -60,12 +75,6 @@
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/07/crypto-%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/</loc>
     <lastmod>2020-08-10</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/07/05/misc-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2020-08-05</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
-    <lastmod>2020-08-01</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/13/pwn-pwntools/</loc>
     <lastmod>2020-07-31</lastmod>
