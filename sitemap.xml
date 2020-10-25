@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
+    
+    <lastmod>2020-10-25T15:42:00.854Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lazzzaro.github.io/2020/08/17/web-CSRF/</loc>
     
     <lastmod>2020-10-25T15:38:41.201Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://lazzzaro.github.io/2020/10/25/match-CTFshow-1024%E6%9D%AF/</loc>
     
     <lastmod>2020-10-25T15:38:19.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
-    
-    <lastmod>2020-10-25T09:28:28.592Z</lastmod>
     
   </url>
   
