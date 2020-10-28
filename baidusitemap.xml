@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lazzzaro.github.io/2020/10/25/match-CTFshow-1024%E6%9D%AF/</loc>
+    <lastmod>2020-10-28</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</loc>
+    <lastmod>2020-10-28</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/06/web-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
+    <lastmod>2020-10-27</lastmod>
+  </url>  <url>
+    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    <lastmod>2020-10-27</lastmod>
+  </url>  <url>
     <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
     <lastmod>2020-10-25</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/08/17/web-CSRF/</loc>
     <lastmod>2020-10-25</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/10/25/match-CTFshow-1024%E6%9D%AF/</loc>
-    <lastmod>2020-10-25</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</loc>
-    <lastmod>2020-10-23</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/07/05/misc-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2020-10-21</lastmod>
@@ -64,9 +70,6 @@
     <loc>https://lazzzaro.github.io/2020/08/23/match-2020%E7%AC%AC%E5%9B%9B%E5%B1%8A%E5%BC%BA%E7%BD%91%E6%9D%AF%E5%85%A8%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8C%91%E6%88%98%E8%B5%9B/</loc>
     <lastmod>2020-08-27</lastmod>
   </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
-    <lastmod>2020-08-24</lastmod>
-  </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/16/web-SQL%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2020-08-12</lastmod>
   </url>  <url>
@@ -114,9 +117,6 @@
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/12/reverse-IDA%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-05-20</lastmod>
-  </url>  <url>
-    <loc>https://lazzzaro.github.io/2020/05/06/web-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
-    <lastmod>2020-05-18</lastmod>
   </url>  <url>
     <loc>https://lazzzaro.github.io/2020/05/10/reverse-Android%E9%80%86%E5%90%91/</loc>
     <lastmod>2020-05-18</lastmod>
