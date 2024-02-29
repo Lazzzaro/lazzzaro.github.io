@@ -408,9 +408,9 @@
     <link href="https://lazzzaro.github.io/2022/06/03/reverse-js%E6%B7%B7%E6%B7%86/"/>
     <id>https://lazzzaro.github.io/2022/06/03/reverse-js%E6%B7%B7%E6%B7%86/</id>
     <published>2022-06-03T14:38:36.000Z</published>
-    <updated>2023-06-03T14:51:17.064Z</updated>
+    <updated>2024-02-27T15:54:16.983Z</updated>
     
-    <content type="html"><![CDATA[<p>​    </p><h3 id="obfuscator-ob"><a href="#obfuscator-ob" class="headerlink" title="obfuscator / ob"></a>obfuscator / ob</h3><p>混淆后，变量跟方法名已经完全替换，第一行可以看到明显的一个数组。</p><p>特征：移位操作，函数名和变量名通常以 _0x 或者 0x 开头，后接 1~6 位数字或字母组合。</p><p>解混淆：</p><p><a href="https://tool.yuanrenxue.cn/decode_obfuscator">https://tool.yuanrenxue.cn/decode_obfuscator</a></p><p>​    </p><h3 id="packed"><a href="#packed" class="headerlink" title="packed"></a>packed</h3><p>特征：eval后面的function参数类似packed组成（也可能是其他组成）。</p><p>解混淆：</p><p><a href="https://lelinhtinh.github.io/de4js/">https://lelinhtinh.github.io/de4js/</a></p>]]></content>
+    <content type="html"><![CDATA[<p>​    </p><h3 id="obfuscator-ob"><a href="#obfuscator-ob" class="headerlink" title="obfuscator / ob"></a>obfuscator / ob</h3><p>混淆后，变量跟方法名已经完全替换，第一行可以看到明显的一个数组。</p><p>特征：移位操作，函数名和变量名通常以 _0x 或者 0x 开头，后接 1~6 位数字或字母组合。</p><p>解混淆：</p><p><a href="https://tool.yuanrenxue.cn/decode_obfuscator">https://tool.yuanrenxue.cn/decode_obfuscator</a></p><p>​    </p><h3 id="packed"><a href="#packed" class="headerlink" title="packed"></a>packed</h3><p>特征：eval后面的function参数类似packed组成（也可能是其他组成）。</p><p>解混淆：</p><p><a href="https://lelinhtinh.github.io/de4js/">https://lelinhtinh.github.io/de4js/</a></p><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><a href="https://obf-io.deobfuscate.io/">https://obf-io.deobfuscate.io/</a></p>]]></content>
     
     
       
