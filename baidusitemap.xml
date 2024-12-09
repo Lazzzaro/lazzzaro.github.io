@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lazzzaro.github.io/2024/12/08/match-2024-HECTF/</loc>
+    <lastmod>2024-12-08</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/24/misc-%E9%9B%B6%E5%AE%BD%E5%BA%A6%E5%AD%97%E7%AC%A6%E9%9A%90%E5%86%99/</loc>
+    <lastmod>2024-12-08</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/12/21/web-node-js%E7%BB%95%E8%BF%87/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/16/web-SQL%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/10/21/web-XSS/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
+    <lastmod>2024-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://lazzzaro.github.io/2024/11/06/match-GeekChallenge2024-%E7%AC%AC%E5%8D%81%E4%BA%94%E5%B1%8A%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/</loc>
     <lastmod>2024-11-19</lastmod>
   </url>
@@ -17,24 +49,8 @@
     <lastmod>2024-11-15</lastmod>
   </url>
   <url>
-    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
-    <lastmod>2024-11-14</lastmod>
-  </url>
-  <url>
     <loc>https://lazzzaro.github.io/2020/05/15/web-SSTI/</loc>
     <lastmod>2024-11-14</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/12/21/web-node-js%E7%BB%95%E8%BF%87/</loc>
-    <lastmod>2024-11-13</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/</loc>
-    <lastmod>2024-11-10</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/24/misc-%E9%9B%B6%E5%AE%BD%E5%BA%A6%E5%AD%97%E7%AC%A6%E9%9A%90%E5%86%99/</loc>
-    <lastmod>2024-11-10</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/11/07/crypto-%E6%B5%81%E5%AF%86%E7%A0%81/</loc>
@@ -47,10 +63,6 @@
   <url>
     <loc>https://lazzzaro.github.io/2020/11/14/web-python%E7%BB%95%E8%BF%87/</loc>
     <lastmod>2024-10-28</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/16/web-SQL%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2024-10-13</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/09/03/web-SSRF/</loc>
@@ -135,10 +147,6 @@
   <url>
     <loc>https://lazzzaro.github.io/2023/11/27/match-Geek-Challenge-2023/</loc>
     <lastmod>2024-03-31</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/08/21/misc-%E6%B2%99%E7%9B%92%E9%80%83%E9%80%B8/</loc>
-    <lastmod>2024-03-28</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/11/07/crypto-%E5%9D%97%E5%AF%86%E7%A0%81/</loc>
@@ -255,10 +263,6 @@
   <url>
     <loc>https://lazzzaro.github.io/2022/05/26/match-Dest0g3-520%E8%BF%8E%E6%96%B0%E8%B5%9B/</loc>
     <lastmod>2022-05-28</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/10/21/web-XSS/</loc>
-    <lastmod>2022-03-01</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2022/02/20/match-HSC-1th-2022/</loc>
