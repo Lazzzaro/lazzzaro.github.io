@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    <lastmod>2025-08-06</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2021/01/20/crypto-%E6%9B%B2%E7%BA%BF/</loc>
+    <lastmod>2025-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
+    <lastmod>2025-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/12/reverse-IDA/</loc>
+    <lastmod>2025-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/13/crypto-%E5%85%B6%E4%BB%96%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2025-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2025-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://lazzzaro.github.io/2020/11/07/crypto-ECC/</loc>
+    <lastmod>2025-07-27</lastmod>
+  </url>
+  <url>
     <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87/</loc>
-    <lastmod>2025-07-15</lastmod>
+    <lastmod>2025-07-19</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/</loc>
@@ -14,10 +42,6 @@
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/11/08/misc-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
-    <lastmod>2025-06-22</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-06-22</lastmod>
   </url>
   <url>
@@ -34,14 +58,6 @@
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/06/20/misc-%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/</loc>
-    <lastmod>2025-05-26</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/13/crypto-%E5%85%B6%E4%BB%96%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2025-05-26</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
     <lastmod>2025-05-26</lastmod>
   </url>
   <url>
@@ -85,16 +101,8 @@
     <lastmod>2025-04-24</lastmod>
   </url>
   <url>
-    <loc>https://lazzzaro.github.io/2020/11/07/crypto-ECC/</loc>
-    <lastmod>2025-04-23</lastmod>
-  </url>
-  <url>
     <loc>https://lazzzaro.github.io/2020/05/06/crypto-RSA/</loc>
     <lastmod>2025-04-23</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
-    <lastmod>2025-04-19</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2020/05/16/web-SQL%E6%B3%A8%E5%85%A5/</loc>
@@ -103,10 +111,6 @@
   <url>
     <loc>https://lazzzaro.github.io/2020/05/13/pwn-pwn%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2025-03-29</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2021/01/20/crypto-%E6%9B%B2%E7%BA%BF/</loc>
-    <lastmod>2025-03-24</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2024/12/08/match-2024-HECTF/</loc>
@@ -186,10 +190,6 @@
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/</loc>
-    <lastmod>2024-03-14</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/12/reverse-IDA/</loc>
     <lastmod>2024-03-14</lastmod>
   </url>
   <url>

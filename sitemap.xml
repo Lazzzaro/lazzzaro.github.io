@@ -2,9 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    
+    <lastmod>2025-08-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2021/01/20/crypto-%E6%9B%B2%E7%BA%BF/</loc>
+    
+    <lastmod>2025-08-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
+    
+    <lastmod>2025-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/12/reverse-IDA/</loc>
+    
+    <lastmod>2025-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/13/crypto-%E5%85%B6%E4%BB%96%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2025-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2025-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lazzzaro.github.io/2020/11/07/crypto-ECC/</loc>
+    
+    <lastmod>2025-07-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lazzzaro.github.io/2020/05/18/web-PHP%E7%BB%95%E8%BF%87/</loc>
     
-    <lastmod>2025-07-15</lastmod>
+    <lastmod>2025-07-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -30,15 +93,6 @@
   
   <url>
     <loc>https://lazzzaro.github.io/2020/11/08/misc-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2025-06-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/10/crypto-crypto%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -75,24 +129,6 @@
   
   <url>
     <loc>https://lazzzaro.github.io/2020/06/20/misc-%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/</loc>
-    
-    <lastmod>2025-05-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/13/crypto-%E5%85%B6%E4%BB%96%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</loc>
-    
-    <lastmod>2025-05-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
     
     <lastmod>2025-05-26</lastmod>
     
@@ -191,27 +227,9 @@
   </url>
   
   <url>
-    <loc>https://lazzzaro.github.io/2020/11/07/crypto-ECC/</loc>
-    
-    <lastmod>2025-04-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lazzzaro.github.io/2020/05/06/crypto-RSA/</loc>
     
     <lastmod>2025-04-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/06/20/misc-%E5%8F%96%E8%AF%81/</loc>
-    
-    <lastmod>2025-04-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -230,15 +248,6 @@
     <loc>https://lazzzaro.github.io/2020/05/13/pwn-pwn%E5%B7%A5%E5%85%B7/</loc>
     
     <lastmod>2025-03-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2021/01/20/crypto-%E6%9B%B2%E7%BA%BF/</loc>
-    
-    <lastmod>2025-03-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -417,15 +426,6 @@
   
   <url>
     <loc>https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/</loc>
-    
-    <lastmod>2024-03-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lazzzaro.github.io/2020/05/12/reverse-IDA/</loc>
     
     <lastmod>2024-03-14</lastmod>
     
@@ -976,7 +976,7 @@
 
   <url>
     <loc>https://lazzzaro.github.io/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -984,490 +984,490 @@
   
   <url>
     <loc>https://lazzzaro.github.io/tags/ECC/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Sage/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/gmpy2/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/RSA/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/OT/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%9D%97%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/AES/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/DES/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%9B%B2%E7%BA%BF/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E7%BC%96%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%B5%81%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/hash/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2020%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2021%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%A0%BC%E5%AF%86%E7%A0%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2022%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2024%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2023%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/2025%E8%B5%9B/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%8F%96%E8%AF%81/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Linux/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Bash/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%9B%BE%E5%83%8F/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E9%9A%90%E5%86%99/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E8%84%9A%E6%9C%AC/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%B5%81%E9%87%8F/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/USB/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/pwntools/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%A0%86/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%A0%88/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E9%80%83%E9%80%B8/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/python/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/node-js/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Android/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/IDA/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/WebAssembly/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/wasm/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/js/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%B7%B7%E6%B7%86/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/angr/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/z3/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Unity/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/CSRF/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/PHP/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/CMS/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/JWT/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/Java/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E7%BB%95%E8%BF%87/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/SSTI/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/SQL/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/SSRF/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/fuzz/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/XXE/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%B8%97%E9%80%8F/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E6%8F%90%E6%9D%83/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/%E5%86%85%E7%BD%91/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/XSS/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/tags/RCE/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1476,49 +1476,49 @@
   
   <url>
     <loc>https://lazzzaro.github.io/categories/crypto/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/match/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/misc/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/other/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/pwn/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/reverse/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lazzzaro.github.io/categories/web/</loc>
-    <lastmod>2025-07-16</lastmod>
+    <lastmod>2025-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
