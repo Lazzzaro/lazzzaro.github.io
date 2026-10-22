@@ -1,0 +1,7 @@
+.cmt-body.utterances {
+  margin: 0 -4px;
+  width: calc(100% + 8px);
+}
+.related-wrap#comments .cmt-body .lazy-icon {
+  top: 62px;
+}

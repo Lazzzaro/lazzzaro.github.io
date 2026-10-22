@@ -1,0 +1,216 @@
+:root {
+  --fs-root: 16px;
+  --fs-content-base: var(--fs-root);
+  --fs-content: var(--fs-content-base);
+  --width-main-article: 800px;
+  --width-main-wiki-list: 1000px;
+  --width-main: var(--width-main-article);
+  --fsh2: calc(var(--fs-content) + 11px);
+  --fsh3: calc(var(--fs-content) + 7px);
+  --fsh4: calc(var(--fs-content) + 4px);
+  --side-content-width: 200px;
+  --gap-base: 16px;
+  --gap-page: 16px;
+  --rightbar-width-extra: calc(var(--gap-base) * 2);
+  --gap-p: calc(var(--fs-content-base) + 4px);
+  --gap-p-compact: calc(var(--fs-content-base) * 0.75);
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --side-content-width: 188px;
+  }
+}
+@media screen and (max-width: 667px) {
+  :root {
+    --fs-root: calc(16px + 1px);
+    --side-content-width: 224px;
+  }
+}
+body[data-page-layout='index_wiki'] {
+  --width-main: var(--width-main-wiki-list);
+}
+.cmt-body.twikoo {
+  --twikoo-theme: var(--theme);
+  margin-top: 1.5rem;
+}
+.cmt-body.twikoo .tk-content .vemoji,
+.cmt-body.twikoo .tk-content .tk-owo-emotion {
+  width: unset;
+  border-radius: 8px;
+  max-height: 24px;
+  max-width: 100px;
+  display: inline;
+  margin: 0 0.25em;
+}
+.cmt-body.twikoo .tk-content img {
+  max-width: 400px;
+  max-height: 400px;
+  border-radius: 8px;
+}
+.OwO .OwO-body {
+  background-color: var(--block) !important;
+  color: var(--text-p1) !important;
+}
+.OwO .OwO-body .OwO-items .OwO-item img {
+  max-height: 26px;
+  width: unset;
+}
+.twikoo .el-input-group__append,
+.twikoo .el-input-group__prepend,
+.twikoo .el-input__inner,
+.twikoo .el-textarea__inner,
+.twikoo .tk-preview-container {
+  border-color: var(--block-border);
+}
+.twikoo .el-input__inner:focus,
+.twikoo .el-textarea__inner:focus {
+  border-color: var(--twikoo-theme) !important;
+}
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):active,
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):focus,
+.twikoo .el-button:not(.el-button--primary):not(.el-button--text):hover {
+  color: var(--twikoo-theme) !important;
+  border-color: var(--link-a20) !important;
+  background-color: var(--block) !important;
+}
+.twikoo .el-button--primary.is-disabled:active,
+.twikoo .el-button--primary.is-disabled:focus,
+.twikoo .el-button--primary.is-disabled:hover {
+  background-color: var(--link-a20) !important;
+}
+.twikoo .el-button:focus,
+.twikoo .el-button:hover {
+  border-color: var(--link-a20);
+}
+.twikoo .el-button:active {
+  color: var(--twikoo-theme);
+  border-color: var(--twikoo-theme);
+}
+.twikoo .el-button.is-active,
+.twikoo .el-button.is-plain:active {
+  color: var(--twikoo-theme);
+  border-color: var(--twikoo-theme);
+}
+.twikoo .el-button--primary {
+  background-color: var(--twikoo-theme);
+  border-color: var(--twikoo-theme) !important;
+}
+.twikoo .el-button--primary:focus,
+.twikoo .el-button--primary:hover {
+  background: var(--accent);
+  border-color: var(--accent) !important;
+}
+.twikoo .el-button--primary:active {
+  background: var(--twikoo-theme);
+  border-color: var(--twikoo-theme);
+}
+.twikoo .el-button--primary.is-active {
+  background: var(--twikoo-theme);
+  border-color: var(--twikoo-theme);
+}
+.twikoo .el-button--primary.is-disabled,
+.twikoo .el-button--primary.is-disabled:active,
+.twikoo .el-button--primary.is-disabled:focus,
+.twikoo .el-button--primary.is-disabled:hover {
+  background-color: var(--link-a20) !important;
+  border-color: var(--link-a20) !important;
+}
+.twikoo .el-button--primary.is-plain {
+  color: var(--twikoo-theme) !important;
+  border-color: var(--link-a20);
+}
+.twikoo .el-button--primary.is-plain:focus,
+.twikoo .el-button--primary.is-plain:hover {
+  background: var(--twikoo-theme) !important;
+  border-color: var(--twikoo-theme);
+}
+.twikoo .el-button--primary.is-plain:active {
+  background: var(--twikoo-theme) !important;
+  border-color: var(--twikoo-theme);
+}
+.twikoo .tk-action-icon svg {
+  color: var(--text-p2);
+}
+.twikoo .tk-action-link {
+  color: var(--text-p1);
+}
+.twikoo .tk-action-link:hover {
+  color: var(--twikoo-theme);
+}
+.twikoo .el-loading-spinner .path {
+  stroke: var(--twikoo-theme);
+}
+.twikoo .tk-icon.__comments {
+  color: var(--twikoo-theme);
+}
+.twikoo b,
+.twikoo strong {
+  color: var(--text-p1);
+}
+.twikoo a {
+  cursor: pointer;
+}
+.twikoo .tk-time,
+.twikoo .tk-extras {
+  color: var(--text-p3);
+}
+.twikoo .tk-expand {
+  width: auto;
+  border: none;
+  padding: 6px 2rem;
+  border-radius: 16px;
+  background: var(--block);
+  color: var(--text-p1);
+  line-height: 2;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease-out;
+  -moz-transition: background 0.2s ease-out;
+  -webkit-transition: background 0.2s ease-out;
+  -o-transition: background 0.2s ease-out;
+}
+.twikoo .tk-expand:hover {
+  background: var(--card);
+}
+.twikoo .tk-comment {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border: 1px dashed var(--block-border);
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--block);
+}
+.twikoo .tk-comment:hover {
+  border-color: var(--twikoo-theme);
+}
+.twikoo .tk-main .tk-comment {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.twikoo .tk-submit {
+  padding: 1rem 1rem 0 1rem;
+  border-radius: 16px;
+  background: var(--block);
+}
+.twikoo .tk-tag {
+  vertical-align: 0.1em;
+}
+.twikoo .tk-tag-green {
+  border: none;
+  background-color: var(--link-a20);
+  color: var(--twikoo-theme);
+}
+.twikoo .tk-comments-title .tk-comments-count {
+  margin-top: 15px;
+  color: var(--text-p1);
+}
+.twikoo .tk-comments-title .tk-comments-count span:nth-child(1) {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.twikoo .tk-comments-title .tk-comments-count span:nth-child(2) {
+  font-size: 1rem;
+}
+.twikoo .tk-comments-no {
+  color: var(--text-p1);
+}

@@ -1,0 +1,200 @@
+document.currentScript.stellarMount = function (root, context) {
+  const utils = context.serviceUtils;
+
+  const els = Array.from(root.getElementsByClassName('ds-memos'));
+
+  els.forEach(el => {
+    const api = el.dataset.api;
+    if (!api) return;
+
+    const default_avatar = el.getAttribute('avatar') || def.avatar;
+    const limit = el.getAttribute('limit');
+    const host = api.match(/https:\/\/(.*?)\/(.*)/i)[1];
+
+    utils.request(el, api, async resp => {
+      const data = await resp.json();
+      let memos = versionHandlers.identify(data);
+      if (memos.version === "feature" )return;
+
+      const users = el.getAttribute('user')?.split(",") || [];
+      const hide = el.getAttribute('hide')?.split(",") || [];
+
+      await Promise.all(memos.data.slice(0, limit || memos.data.length).map(item =>
+          createMemoCell(item, memos, users, hide, default_avatar, host).then(cell => utils.dom(el).append(cell))
+      ));
+    });
+
+    async function createMemoCell(item, memos, users, hide, default_avatar, host) {
+      const versionHandler = versionHandlers[memos.version] || versionHandlers["feature"];
+      return `<div class="timenode">
+                      <div class="header">${!users.length && !hide.includes('user') ? await versionHandler.buildUser(item, memos, default_avatar) : ''}
+                      <span>${versionHandler.buildDate(item).toLocaleString()}</span></div>
+                      <div class="body">${marked.parse(item.content || '')}
+                      <p>${versionHandler.buildImages(item, host).join('')}</p>
+                      </div></div>`;
+    }
+
+    // Memos版本管理
+    const versionHandlers = {
+      "22-": {
+        buildUser: async (item, memos, default_avatar) =>
+            `<div class="user-info">${default_avatar ? `<img src="${default_avatar}">` : ''}<span>${item.creatorName}</span></div>`,
+        buildDate: item => new Date(item.createdTs * 1000),
+        buildImages: (item, host) => (item.resourceList || []).filter(res => res.type?.includes('image/')).map(res =>
+            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
+        )
+      },
+      "22+": {
+        buildUser: async (item, memos, default_avatar) => {
+          const creatorId = item?.creator.split('/')[1];
+          let user = memos.users.find(user => user.id === parseInt(creatorId));
+          if (!user) {
+            if (!memos.requests[creatorId]) {
+              // 走统一请求入口，用户详情同样纳入本地缓存（service: memos-user）
+              memos.requests[creatorId] = utils.requestWithoutLoading(`${memos.site}/api/v1/users/${creatorId}`, { service: 'memos-user' })
+                  .then(response => response.json())
+                  .then(data => {
+                    if (data.username) {
+                      user = data;
+                      memos.users.push(data);
+                    } else {
+                      user = null;
+                    }
+                  })
+                  .catch(() => {
+                    // 用户详情失败时回退默认昵称/头像，不阻塞 memo 渲染
+                    user = null;
+                  })
+                  .finally(() => delete memos.requests[creatorId]);
+            }
+            await memos.requests[creatorId];
+            context.signal.throwIfAborted();
+            user = memos.users.find(user => user.id === parseInt(creatorId));
+          }
+          const name = user ? user.nickname || user.username : 'memos';
+          const avatarUrl = user?.avatarUrl ? `${memos.site}${user.avatarUrl}` : default_avatar || '';
+          return `<div class="user-info">${avatarUrl ? `<img src="${avatarUrl}">` : ''}<span>${name}</span></div>`;
+        },
+        buildDate: item => new Date(item.createTime),
+        buildImages: (item) => (item.resources || []).filter(res => res.type?.includes('image/')).map(res =>
+            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
+        )
+      },
+      "25+": {
+        buildUser: async (item, memos, default_avatar) => {
+          const creatorId = item?.creator.split('/')[1];
+          let user = memos.users.find(user => user.name.split('/')[1] === creatorId);
+          if (!user) {
+            if (!memos.requests[creatorId]) {
+              // 走统一请求入口，用户详情同样纳入本地缓存（service: memos-user）
+              memos.requests[creatorId] = utils.requestWithoutLoading(`${memos.site}/api/v1/users/${creatorId}`, { service: 'memos-user' })
+                  .then(response => response.json())
+                  .then(data => {
+                    if (data.username) {
+                      user = data;
+                      memos.users.push(data);
+                    } else {
+                      user = null;
+                    }
+                  })
+                  .catch(() => {
+                    // 用户详情失败时回退默认昵称/头像，不阻塞 memo 渲染
+                    user = null;
+                  })
+                  .finally(() => delete memos.requests[creatorId]);
+            }
+            await memos.requests[creatorId];
+            context.signal.throwIfAborted();
+            user = memos.users.find(user => user.name.split('/')[1] === creatorId);
+          }
+          const name = user ? user.displayName || user.username : 'memos';
+          const avatarUrl = user?.avatarUrl ? `${memos.site}${user.avatarUrl}` : default_avatar || '';
+          return `<div class="user-info">${avatarUrl ? `<img src="${avatarUrl}">` : ''}<span>${name}</span></div>`;
+        },
+        buildDate: item => new Date(item.createTime),
+        buildImages: (item) => (item.attachments || []).filter(res => res.type?.includes('image/')).map(res =>
+            `<div class="image-bg"><img src="${res.externalLink || `https://${host}/file/${res.name}/${res.filename}`}"></div>`
+        )
+      },
+      "v1": {
+        buildUser: async (item, memos, default_avatar) => {
+          const creator = item?.creator || '';
+          const creatorId = creator.split('/')[1] || creator;
+          const findUser = () => memos.users.find(user =>
+            (user.name || '').split('/')[1] === creatorId || String(user.id) === creatorId
+          );
+          let user = findUser();
+          if (!user && !memos.requests[creatorId]) {
+            memos.requests[creatorId] = utils.requestWithoutLoading(`${memos.site}/api/v1/users/${encodeURIComponent(creator)}`, { service: 'memos-user' })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.username) {
+                    memos.users.push(data);
+                    user = data;
+                  }
+                })
+                .catch(() => {})
+                .finally(() => delete memos.requests[creatorId]);
+          }
+          if (memos.requests[creatorId]) {
+            await memos.requests[creatorId];
+            context.signal.throwIfAborted();
+            user = findUser();
+          }
+          const name = user ? user.displayName || user.username : 'memos';
+          const avatarUrl = user?.avatarUrl
+            ? (user.avatarUrl.startsWith('http') ? user.avatarUrl : `${memos.site}${user.avatarUrl}`)
+            : default_avatar || '';
+          return `<div class="user-info">${avatarUrl ? `<img src="${avatarUrl}">` : ''}<span>${name}</span></div>`;
+        },
+        buildDate: item => {
+          const d = new Date(item.createTime);
+          return isNaN(d.getTime()) ? new Date() : d;
+        },
+        buildImages: (item, host) => {
+          const list = (item.attachments || item.resources || []).filter(res =>
+            res && res.type && String(res.type).includes('image/')
+          );
+          return list.map(res =>
+            `<div class="image-bg"><img src="${res.externalLink || res.url || `https://${host}/file/${res.name}/${res.filename}`}"></div>`
+          );
+        }
+      },
+      "feature": {
+        buildUser: async () => "memos",
+        buildDate: () => new Date(),
+        buildImages: () => []
+      },
+      identify: (data) => {
+        let memos = { version: "feature", users: [], site: api.split('/api/v1')[0], requests: {}, data: [] }
+        if (Array.isArray(data)) {
+          memos.version = "22-";
+          memos.data = data;
+          console.log("当前Memos版本为22-");
+        } else if (data && Array.isArray(data.memos) && data.memos.length > 0) {
+          const first = data.memos[0];
+          const creatorId = String(first.creator || '').split('/')[1] || '';
+          const isV1 = first.createTime != null && creatorId.length > 0 && !/^\d+$/.test(creatorId);
+          if (isV1) {
+            memos.version = "v1";
+            memos.data = data.memos;
+            console.log("当前Memos版本为v1");
+          } else if (first.attachments) {
+            memos.version = "25+";
+            memos.data = data.memos;
+            console.log("当前Memos版本为25+");
+          } else {
+            memos.version = "22+";
+            memos.data = data.memos;
+            console.log("当前Memos版本为22+");
+          }
+        } else {
+          memos.version = "feature";
+          console.log("当前Memos版本过高，请到Stellar社区反馈");
+        }
+        return memos
+      }
+    };
+  });
+
+};

@@ -1,0 +1,270 @@
+:root {
+  --fs-root: 16px;
+  --fs-content-base: var(--fs-root);
+  --fs-content: var(--fs-content-base);
+  --width-main-article: 800px;
+  --width-main-wiki-list: 1000px;
+  --width-main: var(--width-main-article);
+  --fsh2: calc(var(--fs-content) + 11px);
+  --fsh3: calc(var(--fs-content) + 7px);
+  --fsh4: calc(var(--fs-content) + 4px);
+  --side-content-width: 200px;
+  --gap-base: 16px;
+  --gap-page: 16px;
+  --rightbar-width-extra: calc(var(--gap-base) * 2);
+  --gap-p: calc(var(--fs-content-base) + 4px);
+  --gap-p-compact: calc(var(--fs-content-base) * 0.75);
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --side-content-width: 188px;
+  }
+}
+@media screen and (max-width: 667px) {
+  :root {
+    --fs-root: calc(16px + 1px);
+    --side-content-width: 224px;
+  }
+}
+body[data-page-layout='index_wiki'] {
+  --width-main: var(--width-main-wiki-list);
+}
+.cmt-body.artalk .artalk {
+  margin-top: 1rem;
+}
+.cmt-body.artalk .artalk .atk-editor-plug-preview::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+.cmt-body.artalk .artalk .atk-editor-plug-preview::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+.cmt-body.artalk .artalk .atk-editor-plug-preview::-webkit-scrollbar-thumb {
+  background: var(--text-meta);
+  cursor: pointer;
+  border-radius: 0;
+}
+.cmt-body.artalk .artalk .atk-editor-plug-preview::-webkit-scrollbar-thumb:hover {
+  background: var(--text-p3);
+}
+.cmt-body.artalk .artalk .atk-main-editor {
+  border-radius: 16px;
+}
+.cmt-body.artalk .artalk .atk-main-editor .atk-header,
+.cmt-body.artalk .artalk .atk-main-editor .atk-editor-user-wrap {
+  border-bottom: 1px dashed var(--block-border);
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+.cmt-body.artalk .artalk .atk-main-editor .atk-header .atk-editor-user,
+.cmt-body.artalk .artalk .atk-main-editor .atk-editor-user-wrap .atk-editor-user {
+  padding: 0;
+}
+.cmt-body.artalk .artalk .atk-main-editor .atk-editor-user-wrap:empty {
+  visibility: hidden;
+  padding: 0;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom {
+  padding: 8px;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-state-btn {
+  height: 2rem;
+  border-radius: 100px;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-state-btn .atk-cancel {
+  background: none;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-plug-btn {
+  border-radius: 32px;
+  height: 2rem;
+  width: 2rem;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-send-btn {
+  height: 2rem;
+  border-radius: 100px;
+  min-width: 5em;
+  transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-send-btn:hover {
+  --at-color-main: var(--accent);
+}
+.cmt-body.artalk .artalk .atk-main-editor >.atk-bottom .atk-send-btn:empty {
+  display: none;
+}
+.cmt-body.artalk .artalk .atk-list-comments-wrap>.atk-comment-wrap {
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 0 8px 0px rgba(0,0,0,0.02);
+}
+.cmt-body.artalk .artalk .atk-list-comments-wrap>.atk-comment-wrap >.atk-comment {
+  padding: 1rem;
+}
+.cmt-body.artalk .artalk .atk-list-comments-wrap>.atk-comment-wrap+.atk-comment-wrap {
+  margin-top: 0.5rem;
+}
+.cmt-body.artalk .artalk .atk-comment-children {
+  border-top: 1px dashed var(--block-border);
+  margin-top: 0.5rem;
+}
+.cmt-body.artalk .artalk .atk-avatar {
+  padding: 0;
+}
+.cmt-body.artalk .artalk .atk-avatar img {
+  border-radius: 50%;
+  corner-shape: round;
+  width: 36px;
+  height: 36px;
+}
+.cmt-body.artalk .artalk .atk-comment-wrap>.atk-comment>.atk-main {
+  margin-left: calc(36px + 0.5rem);
+}
+.cmt-body.artalk .artalk .atk-comment>.atk-main>.atk-header .atk-item.atk-nick {
+  color: var(--text-p3);
+  font-weight: 500;
+}
+.cmt-body.artalk .artalk .atk-badge-wrap span {
+  border-radius: 100px;
+}
+.cmt-body.artalk .artalk .atk-height-limit-btn {
+  padding: 0.5rem 2rem;
+}
+.cmt-body.artalk .artalk .atk-list-read-more {
+  margin-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+.cmt-body.artalk .artalk .atk-list-read-more .atk-list-read-more-inner {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  height: 3rem;
+  width: 12rem;
+  margin: -1.5rem auto 0;
+}
+.cmt-body.artalk .artalk .atk-list-read-more .atk-list-read-more-inner:hover {
+  background: var(--card);
+}
+.cmt-body.artalk .artalk .atk-list-footer .atk-copyright {
+  padding: 1rem;
+}
+.cmt-body.artalk .artalk .atk-error-layer {
+  background: none;
+}
+.with-fancybox .atk-content img:not([atk-emoticon]) {
+  cursor: zoom-in;
+}
+.cmt-body .artalk,
+.cmt-body .atk-layer-wrap,
+.cmt-body .artalk.atk-dark-mode,
+.cmt-body .atk-layer-wrap.atk-dark-mode {
+  --at-color-font: var(--text-p1);
+  --at-color-deep: var(--text-p2);
+  --at-color-sub: var(--text-p3);
+  --at-color-grey: var(--text-p4);
+  --at-color-meta: var(--text-p4);
+  --at-color-border: var(--block-border);
+  --at-color-light: var(--link);
+  --at-color-bg: var(--card);
+  --at-color-bg-transl: var(--card);
+  --at-color-bg-grey: var(--block);
+  --at-color-bg-grey-transl: var(--block-border);
+  --at-color-bg-light: var(--theme);
+  --at-color-main: var(--theme);
+  --at-color-red: #f44336;
+  --at-color-green: #3dc550;
+  --at-color-gradient: linear-gradient(180deg, transparent, var(--card), 50%, var(--card));
+}
+.cmt-body.artalk .atk-comment>.atk-main>.atk-body {
+  overflow: visible;
+}
+.cmt-body.artalk .artalk pre code,
+.cmt-body.artalk .atk-layer-wrap pre code {
+  background: none;
+}
+.cmt-body.artalk .atk-main-editor>.atk-textarea-wrap>.atk-textarea {
+  background: none;
+  padding: 1rem;
+  margin: 0;
+  border: none;
+}
+.cmt-body.artalk .atk-loading {
+  border-radius: 16px;
+}
+.cmt-body.artalk .atk-main-editor .atk-editor-user-wrap .atk-editor-user .atk-user-profile-btn {
+  padding: 0;
+}
+.cmt-body.artalk:hover {
+  background: none;
+}
+.cmt-body.artalk .artalk>.atk-list>.atk-list-header {
+  padding: 0.5rem 1rem;
+}
+.cmt-body.artalk .artalk>.atk-list>.atk-list-header .atk-comment-count {
+  display: flex;
+  align-items: baseline;
+}
+.cmt-body.artalk .artalk>.atk-list>.atk-list-header .atk-dropdown-wrap .atk-arrow-down-icon {
+  height: 8px;
+}
+.cmt-body.artalk .artalk>.atk-list>.atk-list-header .atk-text {
+  display: block;
+}
+.cmt-body.artalk .atk-notify-wrap .atk-notify {
+  border-radius: 12px;
+  margin: 8px;
+}
+.cmt-body.artalk .atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp {
+  padding: 0.5rem;
+  margin-bottom: 32px;
+}
+.cmt-body.artalk .atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp[data-type=image]>.atk-item {
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.cmt-body.artalk .atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp[data-type=image]>.atk-item >img {
+  border-radius: 4px;
+}
+.md-text .cmt-body.artalk .artalk {
+  --gap-p: 1rem;
+}
+.md-text .cmt-body.artalk .artalk p {
+  line-height: 1.5;
+  font-size: calc(var(--fs-content-base) - 1px);
+}
+.md-text .cmt-body.artalk .artalk p >img {
+  margin: var(--gap-p) auto;
+  border-radius: 8px;
+}
+.md-text .cmt-body.artalk .artalk a>img {
+  display: inline;
+}
+.md-text .cmt-body.artalk .artalk img[atk-emoticon] {
+  max-height: 1.5em;
+  transform: scale(1.2);
+  margin: 0 4px;
+  vertical-align: bottom;
+  border-radius: 4px;
+}
+.md-text .cmt-body.artalk .artalk ul li,
+.md-text .cmt-body.artalk .artalk ol li {
+  font-size: calc(var(--fs-content-base) - 2px);
+}
+.md-text .cmt-body.artalk .artalk blockquote {
+  position: relative;
+  border-left: none;
+  background: none;
+  padding: 0.25rem 1rem;
+}
+.md-text .cmt-body.artalk .artalk blockquote p {
+  color: var(--text-p3);
+}
+.md-text .cmt-body.artalk .artalk .atk-content a {
+  --at-color-main: var(--link);
+}
+.md-text .cmt-body.artalk .artalk .atk-content pre>code {
+  padding: 0;
+}

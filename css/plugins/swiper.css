@@ -1,0 +1,101 @@
+:root {
+  --fs-root: 16px;
+  --fs-content-base: var(--fs-root);
+  --fs-content: var(--fs-content-base);
+  --width-main-article: 800px;
+  --width-main-wiki-list: 1000px;
+  --width-main: var(--width-main-article);
+  --fsh2: calc(var(--fs-content) + 11px);
+  --fsh3: calc(var(--fs-content) + 7px);
+  --fsh4: calc(var(--fs-content) + 4px);
+  --side-content-width: 200px;
+  --gap-base: 16px;
+  --gap-page: 16px;
+  --rightbar-width-extra: calc(var(--gap-base) * 2);
+  --gap-p: calc(var(--fs-content-base) + 4px);
+  --gap-p-compact: calc(var(--fs-content-base) * 0.75);
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --side-content-width: 188px;
+  }
+}
+@media screen and (max-width: 667px) {
+  :root {
+    --fs-root: calc(16px + 1px);
+    --side-content-width: 224px;
+  }
+}
+body[data-page-layout='index_wiki'] {
+  --width-main: var(--width-main-wiki-list);
+}
+:root {
+  --swiper-theme-color: var(--theme) !important;
+}
+.swiper {
+  width: 100%;
+  border-radius: 4px;
+  --gap-p: 2rem;
+}
+.swiper:not(.swiper-initialized) {
+  display: none;
+}
+div.swiper-slide {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-self: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 50%;
+}
+div.swiper-slide img {
+  height: auto;
+  border-radius: 4px;
+}
+.swiper[width='max'] .swiper-slide {
+  width: 100%;
+}
+.swiper[width='min'] .swiper-slide {
+  width: 25%;
+}
+.swiper[effect='cards'] .swiper-slide {
+  max-width: 75%;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  padding: 1rem 0.25rem;
+  margin-top: -2rem !important;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.25);
+  transition: background 0.2s ease-out;
+  -moz-transition: background 0.2s ease-out;
+  -webkit-transition: background 0.2s ease-out;
+  -o-transition: background 0.2s ease-out;
+  --swiper-theme-color: var(--text) !important;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: var(--swiper-theme-color);
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #fff !important;
+  --swiper-theme-color: var(--accent) !important;
+}
+.swiper-button-prev:after {
+  transform: translateX(-1px);
+}
+.swiper-button-next:after {
+  transform: translateX(1px);
+}

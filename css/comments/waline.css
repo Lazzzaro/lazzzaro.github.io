@@ -1,0 +1,141 @@
+:root {
+  --fs-root: 16px;
+  --fs-content-base: var(--fs-root);
+  --fs-content: var(--fs-content-base);
+  --width-main-article: 800px;
+  --width-main-wiki-list: 1000px;
+  --width-main: var(--width-main-article);
+  --fsh2: calc(var(--fs-content) + 11px);
+  --fsh3: calc(var(--fs-content) + 7px);
+  --fsh4: calc(var(--fs-content) + 4px);
+  --side-content-width: 200px;
+  --gap-base: 16px;
+  --gap-page: 16px;
+  --rightbar-width-extra: calc(var(--gap-base) * 2);
+  --gap-p: calc(var(--fs-content-base) + 4px);
+  --gap-p-compact: calc(var(--fs-content-base) * 0.75);
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --side-content-width: 188px;
+  }
+}
+@media screen and (max-width: 667px) {
+  :root {
+    --fs-root: calc(16px + 1px);
+    --side-content-width: 224px;
+  }
+}
+body[data-page-layout='index_wiki'] {
+  --width-main: var(--width-main-wiki-list);
+}
+.cmt-body {
+  --waline-font-size: 0.9375rem;
+/* 常规颜色 */
+  --waline-white: #fff;
+  --waline-light-grey: #999;
+  --waline-dark-grey: #666;
+/* 主题色 */
+  --waline-theme-color: var(--theme);
+  --waline-active-color: var(--accent);
+/* 布局颜色 */
+  --waline-color: var(--text-p1);
+  --waline-bg-color: var(--background);
+  --waline-bg-color-light: var(--block);
+  --waline-bg-color-hover: var(--block-border);
+  --waline-border-color: var(--block-border);
+  --waline-disable-bg-color: var(--block);
+  --waline-disable-color: var(--text-p4);
+  --waline-code-bg-color: #282c34;
+/* 特殊颜色 */
+  --waline-bq-color: var(--block-border);
+/* 头像 */
+  --waline-avatar-size: 3.25rem;
+  --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
+/* 徽章 */
+  --waline-badge-color: #3498db;
+  --waline-badge-font-size: 0.725em;
+/* 信息 */
+  --waline-info-bg-color: var(--block);
+  --waline-info-color: #999;
+  --waline-info-font-size: 0.725em;
+/* 渲染选择 */
+  --waline-border: 1px solid var(--waline-border-color);
+  --waline-avatar-radius: 50%;
+  --waline-box-shadow: none;
+}
+.cmt-body .wl-panel {
+  margin: 0.5em 0 !important;
+}
+.cmt-body .wl-meta-head {
+  padding: 0 !important;
+}
+:root[data-theme="dark"] .cmt-body.waline {
+  --waline-white: #000;
+  --waline-light-grey: #666;
+  --waline-dark-grey: #999;
+/* 布局颜色 */
+  --waline-color: var(--text-p1);
+  --waline-bg-color: var(--block);
+  --waline-bg-color-light: #272727;
+  --waline-border-color: #333;
+  --waline-disable-bg-color: #444;
+  --waline-disable-color: #272727;
+/* 特殊颜色 */
+  --waline-bq-color: #272727;
+/* 其他颜色 */
+  --waline-info-bg-color: #272727;
+  --waline-info-color: #666;
+}
+:root[data-theme="dark"] .cmt-body.waline .wl-count {
+  padding: 0.375em;
+  font-weight: 700;
+  font-size: 1.25em;
+  color: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .cmt-body.waline {
+    --waline-white: #000;
+    --waline-light-grey: #666;
+    --waline-dark-grey: #999;
+    --waline-color: var(--text-p1);
+    --waline-bg-color: var(--block);
+    --waline-bg-color-light: #272727;
+    --waline-border-color: #333;
+    --waline-disable-bg-color: #444;
+    --waline-disable-color: #272727;
+    --waline-bq-color: #272727;
+    --waline-info-bg-color: #272727;
+    --waline-info-color: #666;
+  }
+  :root:not([data-theme]) .cmt-body.waline .wl-count {
+    padding: 0.375em;
+    font-weight: 700;
+    font-size: 1.25em;
+    color: #fff;
+  }
+}
+.md-text .cmt-body.waline p {
+  font-size: var(--waline-font-size);
+  line-height: 1.5;
+  margin: 0;
+}
+.md-text .cmt-body.waline .wl-reply-to * {
+  line-height: 1.5;
+}
+.md-text .cmt-body.waline .wl-header label,
+.md-text .cmt-body.waline .wl-input {
+  font-size: 0.875em;
+}
+.md-text .cmt-body.waline .wl-editor {
+  font-size: var(--waline-font-size);
+  font-family: system-ui, "Microsoft Yahei", "Segoe UI", Arial, sans-serif;
+}
+.md-text .cmt-body.waline .wl-content .wl-emoji,
+.md-text .cmt-body.waline .wl-content .vemoji {
+  height: 2.5em;
+}
+.md-text .cmt-body.waline .wl-content img:not(.wl-emoji):not(.vemoji) {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}

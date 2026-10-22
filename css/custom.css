@@ -1,0 +1,15 @@
+/* Stellar 迁移附加样式 */
+#post-meta .post-views,
+.post-card .post-views {
+  margin-left: 0.75em;
+  opacity: 0.72;
+}
+
+.post-comments {
+  margin-top: 2.5rem;
+}
+
+.post-comments .comments-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
