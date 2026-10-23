@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://lazzzaro.github.io/2025/12/11/match-HSCCTF-2025/</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
     <loc>https://lazzzaro.github.io/2020/09/03/web-SSRF/</loc>
     <lastmod>2026-05-26</lastmod>
   </url>
@@ -63,10 +67,6 @@
   <url>
     <loc>https://lazzzaro.github.io/2021/02/24/reverse-%E9%9D%99%E6%80%81%E5%8F%8D%E8%B0%83%E8%AF%95/</loc>
     <lastmod>2025-12-13</lastmod>
-  </url>
-  <url>
-    <loc>https://lazzzaro.github.io/2025/12/11/match-HSCCTF-2025/</loc>
-    <lastmod>2025-12-11</lastmod>
   </url>
   <url>
     <loc>https://lazzzaro.github.io/2025/08/16/match-%E7%AC%AC%E4%B8%80%E5%B1%8ANetDreamCTF/</loc>
