@@ -80,6 +80,26 @@
     return request('GET', '/api/article?' + query + '&type=time').then(countsFromData);
   }
 
+  function fetchCardStats(paths) {
+    if (!paths.length) return Promise.resolve([]);
+    var query = paths
+      .map(function (path) {
+        return 'path=' + encodeURIComponent(path);
+      })
+      .join('&');
+    return request('GET', '/api/article?' + query + '&type=time&type=helpful').then(
+      function (data) {
+        if (!Array.isArray(data)) return [];
+        return data.map(function (item) {
+          return {
+            views: Number(item && item.time) || 0,
+            helpful: Number(item && item.helpful) || 0
+          };
+        });
+      }
+    );
+  }
+
   function increment(path) {
     if (!CAN_INCREMENT) return Promise.resolve(null);
     return request('POST', '/api/article', {
@@ -109,15 +129,36 @@
     el.textContent = format(n) + ' 阅读';
   }
 
-  function addCardViews(cards, n) {
-    if (!cards || !cards.length || !(Number(n) > 0)) return;
+  function addCardViews(cards, stats) {
+    if (!cards || !cards.length) return;
+    var views = Number(stats && stats.views) || 0;
+    var helpful = Number(stats && stats.helpful) || 0;
+
     cards.forEach(function (card) {
       var meta = card.querySelector('.meta');
-      if (!meta || meta.querySelector('.post-views')) return;
-      var el = document.createElement('span');
-      el.className = 'cap post-views';
-      el.textContent = format(n) + ' 阅读';
-      meta.appendChild(el);
+      if (!meta) return;
+
+      var viewEl = meta.querySelector('.post-views');
+      if (views > 0) {
+        if (!viewEl) {
+          viewEl = document.createElement('span');
+          viewEl.className = 'cap post-views';
+          meta.appendChild(viewEl);
+        }
+        viewEl.textContent = format(views) + ' 阅读';
+      }
+
+      var helpfulEl = meta.querySelector('.post-helpful');
+      if (helpful > 0) {
+        if (!helpfulEl) {
+          helpfulEl = document.createElement('span');
+          helpfulEl.className = 'cap post-helpful';
+          meta.appendChild(helpfulEl);
+        }
+        helpfulEl.textContent = '有用 ' + format(helpful);
+      } else if (helpfulEl) {
+        helpfulEl.remove();
+      }
     });
   }
 
@@ -141,10 +182,10 @@
       groups[key].push(card);
     });
 
-    fetchCounts(paths)
-      .then(function (counts) {
+    fetchCardStats(paths)
+      .then(function (stats) {
         paths.forEach(function (key, index) {
-          addCardViews(groups[key], counts[index]);
+          addCardViews(groups[key], stats[index]);
         });
       })
       .catch(noop);
