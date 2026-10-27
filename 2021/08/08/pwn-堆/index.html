@@ -36,13 +36,13 @@
 <meta property="og:site_name" content="Lazzaro" data-stellar-page-meta="">
 <meta property="og:description" content="​     基础glibc堆管理器：ptmalloc2。 堆由低地址向高地址方向增长。 如果申请了很多的堆块，不考虑释放堆块，会按申请的顺序依次从低地址到高地址排列。 堆空间申请申请到的一块堆内存起始地址 ≠ 可以写入数据的起始地址，因为堆块头部会记录一些信息。 申请的大小 ≠ 实际申请的大小，会有一个取整的步骤。 ​     Top Chunk / Allocated Chunk当程序第一次进行" data-stellar-page-meta="">
 <meta property="og:locale" content="zh_CN" data-stellar-page-meta="">
-<meta property="og:image" content="https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/Users/Administrator/Desktop/pwn-%E5%A0%86/image-20240627092215559.png" data-stellar-page-meta="">
+<meta property="og:image" content="https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png" data-stellar-page-meta="">
 <meta property="article:author" content="Lazzaro" data-stellar-page-meta="">
 <meta property="article:published_time" content="2021-08-08T09:59:44.000Z" data-stellar-page-meta="">
-<meta property="article:modified_time" content="2026-10-23T15:07:47.000Z" data-stellar-page-meta="">
+<meta property="article:modified_time" content="2026-10-27T10:08:26.000Z" data-stellar-page-meta="">
 <meta property="article:tag" content="堆" data-stellar-page-meta="">
 <meta name="twitter:card" content="summary" data-stellar-page-meta="">
-<meta name="twitter:image" content="https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/Users/Administrator/Desktop/pwn-%E5%A0%86/image-20240627092215559.png" data-stellar-page-meta=""><meta name="twitter:title" content="堆" data-stellar-page-meta="">
+<meta name="twitter:image" content="https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png" data-stellar-page-meta=""><meta name="twitter:title" content="堆" data-stellar-page-meta="">
   
   
   <meta name="keywords" content="堆" data-stellar-page-meta="">
@@ -67,8 +67,8 @@
 
   
 
-  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lazzaro","sameAs":[]},"dateCreated":"2021-08-08T17:59:44+08:00","dateModified":"2026-10-23T23:07:47+08:00","datePublished":"2021-08-08T17:59:44+08:00","description":"​    \n基础glibc堆管理器：ptmalloc2。\n堆由低地址向高地址方向增长。\n如果申请了很多的堆块，不考虑释放堆块，会按申请的顺序依次从低地址到高地址排列。\n堆空间申请申请到的一块堆内存起始地址 ≠ 可以写入数据的起始地址，因为堆块头部会记录一些信息。\n申请的大小 ≠ 实际申请的大小，会有一个取整的步骤。\n​    \nTop Chunk / Allocated Chunk当程序第一...","headline":"堆","mainEntityOfPage":{"@type":"WebPage","@id":"https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/"},"publisher":{"@type":"Organization","name":"Lazzaro","sameAs":[]},"url":"https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/","image":["/2021/08/08/pwn-%E5%A0%86/Users\\Administrator\\Desktop\\pwn-堆\\image-20240627092215559.png"],"keywords":"堆","thumbnailUrl":"/2021/08/08/pwn-%E5%A0%86/Users\\Administrator\\Desktop\\pwn-堆\\image-20240627092215559.png"}</script>
-  <link rel="stylesheet" href="/css/custom.css?v=21">
+  <script type="application/ld+json" data-stellar-page-meta="">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lazzaro","sameAs":[]},"dateCreated":"2021-08-08T17:59:44+08:00","dateModified":"2026-10-27T18:08:26+08:00","datePublished":"2021-08-08T17:59:44+08:00","description":"​    \n基础glibc堆管理器：ptmalloc2。\n堆由低地址向高地址方向增长。\n如果申请了很多的堆块，不考虑释放堆块，会按申请的顺序依次从低地址到高地址排列。\n堆空间申请申请到的一块堆内存起始地址 ≠ 可以写入数据的起始地址，因为堆块头部会记录一些信息。\n申请的大小 ≠ 实际申请的大小，会有一个取整的步骤。\n​    \nTop Chunk / Allocated Chunk当程序第一...","headline":"堆","mainEntityOfPage":{"@type":"WebPage","@id":"https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/"},"publisher":{"@type":"Organization","name":"Lazzaro","sameAs":[]},"url":"https://lazzzaro.github.io/2021/08/08/pwn-%E5%A0%86/","image":["/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png"],"keywords":"堆","thumbnailUrl":"/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png"}</script>
+  <link rel="stylesheet" href="/css/custom.css?v=22">
 <script>
   window.MathJax = {
     tex: {
@@ -253,6 +253,78 @@
   <div class="widget-body"><div class="ui-collection" data-layout="list" data-variant="nav" data-density="compact">
   
     
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2022/12/16/crypto-%E5%90%8E%E9%87%8F%E5%AD%90%E5%AF%86%E7%A0%81/" title="后量子密码">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">后</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">后量子密码</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2021/01/24/match-CTFshow-%E5%A4%A7%E5%90%89%E5%A4%A7%E5%88%A9%E6%9D%AFDJBCTF/" title="CTFshow 大吉大利杯DJBCTF">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">C</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">CTFshow 大吉大利杯DJBCTF</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2025/12/11/match-HSCCTF-2025/" title="HSCCTF 2025">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">H</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">HSCCTF 2025</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
+<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2021/08/08/pwn-%E5%A0%86/" title="堆">
+  
+  
+  <span class="ui-collection__initial" aria-hidden="true">堆</span>
+  
+    <span class="ui-collection__content">
+      
+      <span class="ui-collection__title">堆</span>
+      
+      
+    </span>
+  
+  
+  
+</a>
+
+  
+    
 <a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2020/05/06/web-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="文件上传">
   
   
@@ -360,78 +432,6 @@
 </a>
 
   
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2020/05/15/web-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" title="反序列化">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">反</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">反序列化</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2021/03/01/web-XXE/" title="XXE">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">X</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">XXE</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2020/10/21/web-XSS/" title="XSS">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">X</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">XSS</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
-    
-<a class="ui-collection__item ui-interactive card-hover card-hover--spotlight" href="/2020/05/15/web-SSTI/" title="SSTI">
-  
-  
-  <span class="ui-collection__initial" aria-hidden="true">S</span>
-  
-    <span class="ui-collection__content">
-      
-      <span class="ui-collection__title">SSTI</span>
-      
-      
-    </span>
-  
-  
-  
-</a>
-
-  
 </div></div>
   
 </widget>
@@ -462,7 +462,7 @@
     <div class="top bread-nav footnote"><div class="top-row"><div class="left" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/pwn/">pwn</a>
 </div><div class="right"><span class="cap reading">3391 字 · 预计阅读 12 分钟</span></div></div><div class="meta-row">
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2021-08-08T09:59:44.000Z">2021-08-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-23T15:07:47.000Z">2026-10-23</time></span></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2021-08-08T09:59:44.000Z">2021-08-08</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2026-10-27T10:08:26.000Z">2026-10-27</time></span></div>
 </div></div>
     
     <div class="bottom only-title">
@@ -501,14 +501,14 @@
 <li>M（IS_MMAPPED bit）：是否由mmap创出来的</li>
 <li>P（PREV_INUSE bit）：临近的上一个Chunk是否正在使用</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2021/08/08/pwn-%E5%A0%86/Users\Administrator\Desktop\pwn-堆\image-20240627092215559.png" alt="image-20240627092215559" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png" alt="image-20240627092215559" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="1261" height="474" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[120.4222,72.4199,15.9055,1]}" data-stellar-image-source="/2021/08/08/pwn-%E5%A0%86/image-20240627092215559.png"></p>
 <h5 id="Free-Chunk"><a href="#Free-Chunk" class="headerlink" title="Free Chunk"></a>Free Chunk</h5><ul>
 <li>Free掉后的Chunk会根据Size而进到不同的Bins中</li>
 <li>fd：Forward Pointer，指向下一块Free的Chunk</li>
 <li>bk：Backward Pointer，指向上一块Free的Chunk</li>
 <li>以fd/bk将各个Free Chunk串联起来</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2021/08/08/pwn-%E5%A0%86/Users\Administrator\Desktop\pwn-堆\image-20240627093101297.png" alt="image-20240627093101297" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2021/08/08/pwn-%E5%A0%86/image-20240627093101297.png" alt="image-20240627093101297" onerror="this.onerror=null;this.src=&quot;/images/stellar-error.491ee870f4940739.svg&quot;" width="940" height="364" data-stellar-image-dimensions="true" data-stellar-image-color="{&quot;size&quot;:64,&quot;hsla&quot;:[121.3294,71.1996,17.4324,1]}" data-stellar-image-source="/2021/08/08/pwn-%E5%A0%86/image-20240627093101297.png"></p>
 <h4 id="Bin"><a href="#Bin" class="headerlink" title="Bin"></a>Bin</h4><h5 id="Fastbin"><a href="#Fastbin" class="headerlink" title="Fastbin"></a>Fastbin</h5><ul>
 <li>Free掉 Chunk Size &lt;= global_max_fast 的Chunk，会回收至Fastbin</li>
 <li>预设 global_max_fast = 0x80</li>
