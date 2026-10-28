@@ -647,15 +647,33 @@ body.donate-modal-open {
   box-sizing: border-box;
   width: 280px;
   max-height: none;
-  overflow: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--block-border) transparent;
+}
+
+.popular-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.popular-sidebar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--block-border);
 }
 
 .popular-sidebar[hidden] {
   display: none;
 }
 
+.popular-sidebar > section {
+  flex-shrink: 0;
+}
+
 .popular-panel,
-.keyword-panel {
+.keyword-panel,
+.recent-panel {
   box-sizing: border-box;
   width: 100%;
   padding: 0.7rem;
@@ -768,6 +786,68 @@ body.donate-modal-open {
 .popular-panel__views {
   color: var(--text-p3);
   font-size: 0.68rem;
+}
+
+.recent-panel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.recent-panel__head h2 {
+  margin: 0;
+  color: var(--text-p1);
+  font-size: 1.02rem;
+}
+
+.recent-panel__head span {
+  color: var(--text-p3);
+  font-size: 0.7rem;
+}
+
+.recent-panel__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recent-panel__item a {
+  display: grid;
+  grid-template-columns: 1.35rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.26rem 0.1rem;
+  border-radius: 6px;
+  color: var(--text-p2);
+  font-size: 0.84rem;
+}
+
+.recent-panel__item a:hover {
+  background: var(--block);
+  color: var(--theme);
+}
+
+.recent-panel__rank {
+  color: var(--text-p4);
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+.recent-panel__title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-panel__time {
+  color: var(--text-p3);
+  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 0.66rem;
+  white-space: nowrap;
 }
 
 /* 首页近期热门（旧版内联样式，保留兼容） */

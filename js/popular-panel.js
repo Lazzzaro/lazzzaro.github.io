@@ -49,6 +49,7 @@
     panel.style.width = width + 'px';
     panel.style.left = panelLeft + 'px';
     panel.style.top = initialTop + 'px';
+    panel.style.maxHeight = Math.max(220, window.innerHeight - initialTop - 16) + 'px';
     panel.hidden = false;
   }
 
