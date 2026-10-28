@@ -1002,3 +1002,58 @@ body[data-page-type='index'] .widget-instance--recent {
 
 
 
+
+/* match 文章目录：按层级折叠题目 */
+body[data-match-toc='true'] .widget-wrapper.toc .toc ol.toc-child {
+  display: none;
+}
+
+body[data-match-toc='true'] .widget-wrapper.toc .toc .toc-item.is-open > ol.toc-child {
+  display: block;
+}
+
+body[data-match-toc='true'] .widget-wrapper.toc .toc-item.match-toc-group > a.toc-link {
+  padding-right: 24px;
+}
+
+body[data-match-toc='true'] .widget-wrapper.toc .toc-item.match-toc-group > a.toc-link::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -4px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.55;
+  transition: transform 0.2s ease;
+}
+
+body[data-match-toc='true'] .widget-wrapper.toc .toc-item.match-toc-group.is-open > a.toc-link::after {
+  margin-top: -2px;
+  transform: rotate(-135deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-match-toc='true'] .widget-wrapper.toc .toc-item.match-toc-group > a.toc-link::after {
+    transition: none;
+  }
+}
+
+/* 正文行距：让自动换行与段落换行的间距接近 */
+.md-text.content {
+  line-height: 1.8;
+}
+
+.md-text.content p {
+  line-height: 1.8;
+  margin-top: 0.18em;
+  margin-bottom: 0.18em;
+}
+
+.md-text.content blockquote p,
+.md-text.content li {
+  line-height: 1.8;
+}
