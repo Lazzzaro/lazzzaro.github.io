@@ -15,8 +15,31 @@
   var recentList = null;
   var popularList = null;
   var popularLabel = null;
+  var titleMap = {};
   var inFlight = false;
   var lastFetch = 0;
+
+  function loadTitleMap() {
+    var element = document.getElementById('post-title-map');
+    if (!element) return;
+    try {
+      titleMap = JSON.parse(element.textContent || '{}') || {};
+    } catch (error) {
+      titleMap = {};
+    }
+  }
+
+  function displayTitle(item) {
+    if (!item) return '';
+    if (titleMap[item.url]) return titleMap[item.url];
+    try {
+      var decoded = decodeURIComponent(item.url || '');
+      if (titleMap[decoded]) return titleMap[decoded];
+    } catch (error) {
+      void error;
+    }
+    return item.title || item.url || '';
+  }
 
   function formatTime(value) {
     var date = new Date(value);
@@ -57,7 +80,7 @@
 
       var title = document.createElement('span');
       title.className = 'recent-panel__title';
-      title.textContent = item.title || item.url;
+      title.textContent = displayTitle(item);
 
       var time = document.createElement('span');
       time.className = 'recent-panel__time';
@@ -101,7 +124,7 @@
 
       var title = document.createElement('span');
       title.className = 'popular-panel__title';
-      title.textContent = item.title || item.url;
+      title.textContent = displayTitle(item);
 
       var views = document.createElement('span');
       views.className = 'popular-panel__views';
@@ -169,6 +192,7 @@
     popularLabel = document.querySelector('.popular-panel__head span');
     if (!recentList && !popularList) return;
 
+    loadTitleMap();
     refresh(true);
     window.addEventListener('pageshow', function () {
       refresh(true);
