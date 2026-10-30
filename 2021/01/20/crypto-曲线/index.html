@@ -648,14 +648,14 @@
 <p>​    </p>
 <h5 id="x-2-e-cdot-y-2-N-型"><a href="#x-2-e-cdot-y-2-N-型" class="headerlink" title="$x^2+e\cdot y^2=N$ 型"></a>$x^2+e\cdot y^2=N$ 型</h5><p>性质：</p>
 <p>形如$4\cdot k + 1$的素数$p$可以被分解为如下的二平方和：</p>
-<script type="math/tex; mode=display">x^2+y^2=p\quad x,y\in\mathbb{N}</script><p>其证明方法有很多，这里给出一种较为有趣的证明方法。</p>
+\[x^2+y^2=p\quad x,y\in\mathbb{N}\]<p>其证明方法有很多，这里给出一种较为有趣的证明方法。</p>
 <p>$\textbf{Proof}$</p>
 <p>首先注意到$-1$为模$p$的二次剩余，这里我们设$e$满足：$e^2\equiv-1\bmod p$。</p>
 <p>然后我们构造格$\mathcal{L}$，其格基矩阵如下：</p>
 <p>$M = \begin{bmatrix}<br>1 &amp; e\\<br>0 &amp; p\\<br>\end{bmatrix}<br>$</p>
 <p>对于其中的向量$\vec{t}=\vec{v}\cdot M=(x_0,y_0)\cdot M=(x_1,y_1)$</p>
 <p>有$x_1=x_0,y_1=e\cdot x_0+p\cdot y_0$，考虑其范数，有</p>
-<script type="math/tex; mode=display">\Vert \vec{t}\Vert=x_0^2+(e\cdot x_0+p\cdot y_0)^2=(e^2+1)\cdot x_0^2 + p^2\cdot y_0^2 + 2\cdot e\cdot p\cdot x_0\cdot y_0</script><p>两边模$p$，得到$\Vert \vec{t} \Vert \equiv 0 \bmod p$，也就是说对于格$\mathcal{L}$中的任意一个向量$\vec{t}$，均有$\Vert \vec{t}\Vert=k\cdot p$。</p>
+\[\Vert \vec{t}\Vert=x_0^2+(e\cdot x_0+p\cdot y_0)^2=(e^2+1)\cdot x_0^2 + p^2\cdot y_0^2 + 2\cdot e\cdot p\cdot x_0\cdot y_0\]<p>两边模$p$，得到$\Vert \vec{t} \Vert \equiv 0 \bmod p$，也就是说对于格$\mathcal{L}$中的任意一个向量$\vec{t}$，均有$\Vert \vec{t}\Vert=k\cdot p$。</p>
 <p>考虑格$\mathcal{L}$中的最短非零向量，尝试估计其长度。</p>
 <p>因为有$\det(M)=p$，所以格$\mathcal{L}$中的最短非零向量长度满足<br>$0&lt;\Vert \vec{t_0} \Vert^2 &lt; 2\cdot p$。</p>
 <p>综上有$\Vert \vec{t_0} \Vert^2 = x_0^2 + y_0^2 = p$。证明完毕。</p>

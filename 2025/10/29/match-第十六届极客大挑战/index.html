@@ -980,7 +980,7 @@
 </blockquote>
 <p>rust程序，伪码与汇编结合看。</p>
 <p>主函数sub_140002490，先进入sub_140003020，是base64算法，码表为常规码表A-Za-z0-9；往下再到base85编码算法，码表在 <code>a0123456789Abcd</code>，提取：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstu</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstu</span><br></pre></td></tr></tbody></table></figure>
 <p>最后是一个str转hex，用memcmp比较结果与密文，在memcmp下断点，动调提取密文：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3c41413b58414d3f2c5f403b545b7240374537373968383b733e276070743d3e336336415375484641534f74503c476b665f4134266750416c315d53</span><br></pre></td></tr></tbody></table></figure>
 <p>Cyberchef解密，fromhex+base85+base64，得到flag：</p>

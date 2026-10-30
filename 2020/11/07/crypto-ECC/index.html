@@ -582,12 +582,12 @@
 <p>​    </p>
 <h3 id="奇异曲线-Singular-Curve"><a href="#奇异曲线-Singular-Curve" class="headerlink" title="奇异曲线 (Singular Curve)"></a>奇异曲线 (Singular Curve)</h3><p>$y^2=x^3+ax+b$，判别式满足：$\Delta=-16(4a^3+27b^2) = 0$ 。</p>
 <p>对于singular curve来说，其分两种情况cusp和node，其中cusp指椭圆曲线方程有三重根，而node指有两重根。也就是说他们的方程分别可以写成如下形式：</p>
-<script type="math/tex; mode=display">
+\[
 y^2 = x^3 \\
-y^2 = (x - \alpha)^2(x - \beta)</script><p>两种形式的singular curve都存在不同方式的向数域上的映射。</p>
-<h4 id="cusp"><a href="#cusp" class="headerlink" title="cusp"></a>cusp</h4><script type="math/tex; mode=display">
-E \rightarrow F_p :(x,y) \rightarrow \frac{x}{y}</script><h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4><script type="math/tex; mode=display">
-E \rightarrow F_p :(x,y) \rightarrow \frac{y + \sqrt{\alpha - \beta}(x - \alpha)}{y - \sqrt{\alpha - \beta}(x - \alpha)}</script><p>​    </p>
+y^2 = (x - \alpha)^2(x - \beta)\]<p>两种形式的singular curve都存在不同方式的向数域上的映射。</p>
+<h4 id="cusp"><a href="#cusp" class="headerlink" title="cusp"></a>cusp</h4>\[
+E \rightarrow F_p :(x,y) \rightarrow \frac{x}{y}\]<h4 id="node"><a href="#node" class="headerlink" title="node"></a>node</h4>\[
+E \rightarrow F_p :(x,y) \rightarrow \frac{y + \sqrt{\alpha - \beta}(x - \alpha)}{y - \sqrt{\alpha - \beta}(x - \alpha)}\]<p>​    </p>
 <h3 id="ECDLP"><a href="#ECDLP" class="headerlink" title="ECDLP"></a>ECDLP</h3><p>ECDLP即<strong>椭圆曲线上的离散对数问题</strong>（The Elliptic Curve Discrete Logarithm Problem）。</p>
 <p>椭圆曲线上离散对数问题ECDLP定义如下：给定素数 $p$ 和椭圆曲线 $E$，对 $Q=kP$，在已知 $P,Q$ 的情况下求出小于 $p$ 的正整数 $k$。可以证明由 $k$ 和 $P$ 计算 $Q$ 比较容易，而由 $Q$ 和 $P$ 计算 $k$ 则比较困难。</p>
 <p>目前已知最快的解决椭圆离散对数问题的算法大约需要在 $\sqrt{p}$ 步，所以当 $p$ 足够大时，椭圆曲线加密具有安全性。</p>

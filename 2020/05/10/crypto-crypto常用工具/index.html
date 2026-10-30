@@ -548,19 +548,19 @@
 </ul>
 <p>形式上，一个多变量 Coppersmith 问题由若干个整数系数多项式组成。</p>
 <p>每个多项式 $f_i$ 的形式如下：</p>
-<script type="math/tex; mode=display">
-f_i(x_1, …, x_\ell) ≡ 0 \pmod{N_i}</script><p>其中 $N_i$ 是已知的；或者</p>
-<script type="math/tex; mode=display">
-f_i(x_1, …, x_\ell) ≡ 0 \pmod{p_i}</script><p>其中 $p_i$ 是未知的；</p>
+\[
+f_i(x_1, …, x_\ell) ≡ 0 \pmod{N_i}\]<p>其中 $N_i$ 是已知的；或者</p>
+\[
+f_i(x_1, …, x_\ell) ≡ 0 \pmod{p_i}\]<p>其中 $p_i$ 是未知的；</p>
 <p>或者</p>
-<script type="math/tex; mode=display">
-f_i(x_1, …, x_\ell) = 0</script><p>即无模数约束的情况。</p>
+\[
+f_i(x_1, …, x_\ell) = 0\]<p>即无模数约束的情况。</p>
 <p>在某些情况下，虽然 $p_i$ 未知，但其倍数 $N_i$ 是已知的。</p>
 <p>一个 Coppersmith 问题还包括一组整数上界：</p>
-<script type="math/tex; mode=display">
-(X_1, …, X_\ell)</script><p>目标是找到所有满足所有多项式方程以及如下约束条件的解：</p>
-<script type="math/tex; mode=display">
-|r_i| < X_i, \quad 1 ≤ i ≤ \ell</script><p><strong>使用</strong></p>
+\[
+(X_1, …, X_\ell)\]<p>目标是找到所有满足所有多项式方程以及如下约束条件的解：</p>
+\[
+|r_i| < X_i, \quad 1 ≤ i ≤ \ell\]<p><strong>使用</strong></p>
 <blockquote>
 <p><code>relations</code>：关系式<br><code>bounds</code>：界限（左开右开区间）<br><code>modulus</code>：模数<br><code>modulus_multiple</code>：模数的幂次<br><code>modulus_lower_bound</code>：模数的最低界限</p>
 </blockquote>
