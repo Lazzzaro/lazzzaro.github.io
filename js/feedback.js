@@ -3,6 +3,10 @@
  *
  * One "helpful" vote per browser. The custom /api/helpful endpoint stores the
  * visitor metadata in CloudBase and increments Counter.helpful.
+ *
+ * The same vote is exposed twice:
+ *   - the full card before the comments
+ *   - a fixed compact pill at the bottom-right while reading
  */
 (function () {
   'use strict';
@@ -83,22 +87,54 @@
     main.appendChild(card);
   }
 
+  var fab = document.createElement('div');
+  fab.id = 'post-helpful-fab';
+  fab.className = 'post-helpful-fab';
+  fab.innerHTML =
+    '<button type="button" class="post-helpful-fab__button" aria-label="标记这篇文章有用" aria-pressed="false">' +
+      '<span class="post-helpful-fab__icon" aria-hidden="true">👍</span>' +
+      '<span class="post-helpful-fab__label">有用</span>' +
+      '<span class="post-helpful-fab__count" hidden></span>' +
+    '</button>';
+  document.body.appendChild(fab);
+
   var button = card.querySelector('.feedback-button');
   var status = card.querySelector('.post-feedback__status');
+  var fabButton = fab.querySelector('.post-helpful-fab__button');
+  var fabLabel = fab.querySelector('.post-helpful-fab__label');
+  var fabCount = fab.querySelector('.post-helpful-fab__count');
+  var currentCount = 0;
 
   function setStatus(message) {
     status.textContent = message;
   }
 
+  function setCount(count) {
+    currentCount = Number(count) || 0;
+    if (!fabCount) return;
+    fabCount.textContent = currentCount > 0 ? currentCount.toLocaleString('zh-CN') : '';
+    fabCount.hidden = currentCount <= 0;
+  }
+
   function markVoted(count) {
+    if (Number.isFinite(count)) setCount(count);
     button.setAttribute('aria-pressed', 'true');
     button.disabled = true;
+    fabButton.setAttribute('aria-pressed', 'true');
+    fabButton.disabled = true;
+    fabButton.classList.add('is-voted');
+    fabLabel.textContent = '已有用';
     setStatus(
       '你已反馈：有帮助' +
-      (Number.isFinite(count) && count > 0
-        ? ' · 已有 ' + count + ' 人觉得有用'
+      (currentCount > 0
+        ? ' · 已有 ' + currentCount + ' 人觉得有用'
         : '')
     );
+  }
+
+  function setBusy(busy) {
+    button.disabled = busy || voted;
+    fabButton.disabled = busy || voted;
   }
 
   function loadCount() {
@@ -117,7 +153,10 @@
         if (!json || json.errno) return;
         var data = Array.isArray(json.data) ? json.data[0] : json.data;
         var count = Number(data && data.helpful) || 0;
-        if (!voted) {
+        setCount(count);
+        if (voted) {
+          markVoted(count);
+        } else {
           setStatus(count > 0 ? '已有 ' + count + ' 人觉得有用' : '');
         }
       })
@@ -126,11 +165,11 @@
 
   function recordVote() {
     if (voted) {
-      markVoted();
+      markVoted(currentCount);
       return;
     }
 
-    button.disabled = true;
+    setBusy(true);
     setStatus('提交中…');
 
     fetch(serverURL + '/api/helpful', {
@@ -184,16 +223,40 @@
         markVoted(count);
       })
       .catch(function () {
-        button.disabled = false;
+        setBusy(false);
         setStatus('提交失败，请稍后再试');
       });
   }
 
   button.addEventListener('click', recordVote);
+  fabButton.addEventListener('click', recordVote);
 
   if (voted) {
     markVoted();
-  } else {
-    loadCount();
   }
+  loadCount();
+
+  // 滚到文章底部的完整卡片时隐藏悬浮按钮，避免重复出现。
+  function updateFabVisibility() {
+    var rect = card.getBoundingClientRect();
+    var visible = rect.bottom > 0 && rect.top < window.innerHeight;
+    fab.classList.toggle('is-hidden', visible);
+    fabButton.tabIndex = visible ? -1 : 0;
+    fab.setAttribute('aria-hidden', visible ? 'true' : 'false');
+  }
+
+  var scrollTimer = null;
+  window.addEventListener(
+    'scroll',
+    function () {
+      if (scrollTimer) return;
+      scrollTimer = window.setTimeout(function () {
+        scrollTimer = null;
+        updateFabVisibility();
+      }, 50);
+    },
+    { passive: true }
+  );
+  window.addEventListener('resize', updateFabVisibility, { passive: true });
+  updateFabVisibility();
 })();

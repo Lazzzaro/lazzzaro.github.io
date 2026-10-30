@@ -1064,6 +1064,126 @@ body[data-page-type='index'] .widget-instance--recent {
   text-align: right;
 }
 
+/* 文章页常驻「有用」快捷按钮：桌面放在赞赏条右侧 */
+.post-helpful-fab {
+  position: fixed;
+  left: calc(50% + min(46vw, 260px) + 12px);
+  right: auto;
+  bottom: calc(1.15rem + 6px);
+  z-index: 61;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.post-helpful-fab.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+}
+
+.post-helpful-fab__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(22, 163, 74, 0.4);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(22, 163, 74, 0.28);
+  font-size: 0.86rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, border-color 0.18s ease, filter 0.18s ease;
+}
+
+.post-helpful-fab__button:hover,
+.post-helpful-fab__button:focus-visible {
+  transform: translateY(-1px);
+  border-color: #15803d;
+  color: #fff;
+  filter: brightness(1.06);
+}
+
+.post-helpful-fab__icon {
+  font-size: 1rem;
+}
+
+.post-helpful-fab__count {
+  min-width: 1.5em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+.post-helpful-fab__button[aria-pressed='true'] {
+  border-color: #15803d;
+  background: #15803d;
+  color: #fff;
+}
+
+.post-helpful-fab__button[aria-pressed='true'] .post-helpful-fab__count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.post-helpful-fab__button:disabled {
+  cursor: default;
+}
+
+/* 更窄时右侧有目录悬浮按钮，放到它上方，避免重叠 */
+@media (max-width: 899px) {
+  .post-helpful-fab {
+    left: auto;
+    right: 2rem;
+    bottom: calc(2rem + 52px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 600px) {
+  .post-helpful-fab {
+    right: 2rem;
+  }
+
+  .post-helpful-fab__label {
+    display: none;
+  }
+
+  .post-helpful-fab__button {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .post-helpful-fab__count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 1.15em;
+    padding: 0 0.25rem;
+    border: 1px solid rgba(22, 163, 74, 0.35);
+    background: #fff;
+    color: #15803d;
+    font-size: 0.62rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-helpful-fab,
+  .post-helpful-fab__button {
+    transition: none;
+  }
+}
+
 @media (max-width: 600px) {
   .post-feedback {
     align-items: flex-start;
