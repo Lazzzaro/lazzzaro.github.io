@@ -283,8 +283,8 @@
     collectCards();
     refresh(true);
 
-    window.addEventListener('pageshow', function () {
-      refresh(true);
+    window.addEventListener('pageshow', function (event) {
+      refresh(!!event.persisted);
     });
     window.addEventListener('focus', function () {
       refresh(false);
