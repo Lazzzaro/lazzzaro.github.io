@@ -208,6 +208,13 @@
     if (document.body.getAttribute('data-page-layout') === 'post') {
       initArticleViews();
     } else {
+      // 首页由 home-stats.js 统一请求卡片数据、最新阅读和近期热门。
+      if (
+        document.querySelector('.recent-panel__list') ||
+        document.querySelector('.popular-panel__list')
+      ) {
+        return;
+      }
       initCardViews();
     }
   }

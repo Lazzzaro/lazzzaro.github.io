@@ -1,11 +1,10 @@
 /*!
- * 首页侧栏实时刷新。
+ * Homepage live stats: one /api/home-stats request for
+ *   - post card views / helpful counts
+ *   - "最新阅读"
+ *   - "近期热门"
  *
- * 服务端在构建时已经渲染了「近期热门」和「最新阅读」；本脚本在首页加载、
- * 从文章页返回（pageshow / visibilitychange / focus）时重新拉取：
- *   - /api/popular-30d：近 30 天 Top 10（未满 30 天时接口返回累计 Top 10）
- *   - /api/recent-views：按最后阅读时间倒序的最新阅读
- * 接口失败时保留服务端渲染的兜底列表。
+ * Server-rendered counts and lists are the initial fallback.
  */
 (function () {
   'use strict';
@@ -16,6 +15,8 @@
   var popularList = null;
   var popularLabel = null;
   var titleMap = {};
+  var cardGroups = {};
+  var cardPaths = [];
   var inFlight = false;
   var lastFetch = 0;
 
@@ -59,6 +60,85 @@
     }, {});
 
     return parts.month + '-' + parts.day + ' ' + parts.hour + ':' + parts.minute;
+  }
+
+  function normPath(input) {
+    var path = input || '/';
+    try {
+      path = new URL(path, location.origin).pathname;
+    } catch (error) {
+      void error;
+    }
+    try {
+      path = decodeURIComponent(path);
+    } catch (error) {
+      void error;
+    }
+    if (path.charAt(0) !== '/') path = '/' + path;
+    if (path.charAt(path.length - 1) !== '/') path += '/';
+    return path;
+  }
+
+  function collectCards() {
+    var cards = document.querySelectorAll('a.post-card');
+    if (!cards.length) return;
+
+    Array.prototype.forEach.call(cards, function (card) {
+      var path = normPath(card.getAttribute('href'));
+      if (!cardGroups[path]) {
+        cardGroups[path] = [];
+        cardPaths.push(path);
+      }
+      cardGroups[path].push(card);
+    });
+  }
+
+  function formatCount(value) {
+    return Number(value || 0).toLocaleString('zh-CN');
+  }
+
+  function addCardStats(cards, stats) {
+    if (!cards || !stats) return;
+
+    var views = Number(stats.time) || 0;
+    var helpful = Number(stats.helpful) || 0;
+
+    cards.forEach(function (card) {
+      var meta = card.querySelector('.meta');
+      if (!meta) return;
+
+      var viewEl = meta.querySelector('.post-views');
+      if (views > 0) {
+        if (!viewEl) {
+          viewEl = document.createElement('span');
+          viewEl.className = 'cap post-views';
+          meta.appendChild(viewEl);
+        }
+        viewEl.textContent = formatCount(views) + ' 阅读';
+      } else if (viewEl) {
+        viewEl.remove();
+      }
+
+      var helpfulEl = meta.querySelector('.post-helpful');
+      if (helpful > 0) {
+        if (!helpfulEl) {
+          helpfulEl = document.createElement('span');
+          helpfulEl.className = 'cap post-helpful';
+          meta.appendChild(helpfulEl);
+        }
+        helpfulEl.textContent = '有用 ' + formatCount(helpful);
+      } else if (helpfulEl) {
+        helpfulEl.remove();
+      }
+    });
+  }
+
+  function renderCards(items) {
+    if (!Array.isArray(items)) return;
+    items.forEach(function (item) {
+      if (!item || !item.path) return;
+      addCardStats(cardGroups[item.path], item);
+    });
   }
 
   function renderRecent(items) {
@@ -128,7 +208,7 @@
 
       var views = document.createElement('span');
       views.className = 'popular-panel__views';
-      views.textContent = Number(item.views || 0).toLocaleString('zh-CN');
+      views.textContent = formatCount(item.views);
 
       link.appendChild(rank);
       link.appendChild(title);
@@ -152,20 +232,6 @@
     }
   }
 
-  function fetchJson(endpoint) {
-    return fetch(SERVER_URL + endpoint, {
-      cache: 'no-store',
-      credentials: 'omit',
-      headers: { Accept: 'application/json' }
-    }).then(function (response) {
-      if (!response.ok) throw new Error('Waline HTTP ' + response.status);
-      return response.json();
-    }).then(function (json) {
-      if (!json || json.errno) throw new Error('Waline error');
-      return json.data || {};
-    });
-  }
-
   function refresh(force) {
     if (document.hidden || inFlight) return;
 
@@ -174,16 +240,37 @@
     lastFetch = now;
     inFlight = true;
 
-    Promise.allSettled([
-      fetchJson('/api/recent-views?limit=10&t=' + now).then(function (data) {
-        if (data && data.items) renderRecent(data.items);
-      }),
-      fetchJson('/api/popular-30d?days=30&limit=10&t=' + now).then(function (data) {
-        if (data) renderPopular(data);
+    var query = cardPaths
+      .map(function (path) {
+        return 'path=' + encodeURIComponent(path);
       })
-    ]).finally(function () {
-      inFlight = false;
-    });
+      .join('&');
+    var endpoint =
+      '/api/home-stats?recent=10&popular=10&days=30&t=' +
+      now +
+      (query ? '&' + query : '');
+
+    fetch(SERVER_URL + endpoint, {
+      cache: 'no-store',
+      credentials: 'omit',
+      headers: { Accept: 'application/json' }
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Waline HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function (json) {
+        if (!json || json.errno || !json.data) throw new Error('Waline error');
+        renderCards(json.data.cards);
+        renderRecent(json.data.recent);
+        renderPopular(json.data.popular);
+      })
+      .catch(function () {
+        // Keep the server-rendered fallback.
+      })
+      .finally(function () {
+        inFlight = false;
+      });
   }
 
   function start() {
@@ -193,7 +280,9 @@
     if (!recentList && !popularList) return;
 
     loadTitleMap();
+    collectCards();
     refresh(true);
+
     window.addEventListener('pageshow', function () {
       refresh(true);
     });
