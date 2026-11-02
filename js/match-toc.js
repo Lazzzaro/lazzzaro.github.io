@@ -77,9 +77,47 @@
   function openChain(link) {
     var li = link.closest('li.toc-item');
     while (li) {
-      if (li.classList.contains('match-toc-group')) setOpen(li, true);
+      if (li.classList.contains('match-toc-group')) {
+        closeSiblings(li);
+        setOpen(li, true);
+      }
       var parent = li.parentElement;
       li = parent ? parent.closest('li.toc-item') : null;
+    }
+  }
+
+  function closeSiblings(li) {
+    var parent = li.parentElement;
+    if (!parent) return;
+    Array.prototype.forEach.call(parent.children, function (sibling) {
+      if (
+        sibling !== li &&
+        sibling.classList &&
+        sibling.classList.contains('match-toc-group')
+      ) {
+        setOpen(sibling, false);
+      }
+    });
+  }
+
+  function scrollTocToLink(link) {
+    var container = link.parentElement;
+    while (container && container !== document.body) {
+      var style = getComputedStyle(container);
+      if (
+        /(auto|scroll)$/.test(style.overflowY) &&
+        container.scrollHeight > container.clientHeight
+      ) {
+        var linkRect = link.getBoundingClientRect();
+        var box = container.getBoundingClientRect();
+        if (linkRect.top < box.top + 8) {
+          container.scrollTop += linkRect.top - box.top - 8;
+        } else if (linkRect.bottom > box.bottom - 8) {
+          container.scrollTop += linkRect.bottom - box.bottom + 8;
+        }
+        return;
+      }
+      container = container.parentElement;
     }
   }
 
@@ -90,19 +128,46 @@
     // 带锚点打开页面时，展开目标题目所在的整条目录链。
     var hash = location.hash.replace(/^#/, '');
     try { hash = decodeURIComponent(hash); } catch (error) { void error; }
-    if (!hash) return;
-
-    var links = toc.querySelectorAll('a.toc-link');
-    for (var i = 0; i < links.length; i++) {
-      var href = links[i].getAttribute('href') || '';
-      if (!href || href.charAt(0) !== '#') continue;
-      var id = href.slice(1);
-      try { id = decodeURIComponent(id); } catch (error) { void error; }
-      if (id === hash) {
-        openChain(links[i]);
-        break;
+    if (hash) {
+      var links = toc.querySelectorAll('a.toc-link');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href') || '';
+        if (!href || href.charAt(0) !== '#') continue;
+        var id = href.slice(1);
+        try { id = decodeURIComponent(id); } catch (error) { void error; }
+        if (id === hash) {
+          openChain(links[i]);
+          scrollTocToLink(links[i]);
+          break;
+        }
       }
     }
+
+    // 滚动时跟随当前激活的标题，自动展开到对应层级。
+    var lastActive = null;
+    var scrollTimer = null;
+
+    function syncActive() {
+      var active = toc.querySelector('a.toc-link.active');
+      if (!active || active === lastActive) return;
+      lastActive = active;
+      openChain(active);
+      scrollTocToLink(active);
+    }
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (scrollTimer) return;
+        scrollTimer = window.setTimeout(function () {
+          scrollTimer = null;
+          syncActive();
+        }, 120);
+      },
+      { passive: true }
+    );
+
+    window.setTimeout(syncActive, 300);
   }
 
   function start() {
