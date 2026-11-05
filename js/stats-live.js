@@ -14,6 +14,7 @@
   var commentValue = null;
   var viewValue = null;
   var commentsList = null;
+  var updatedElement = null;
   var inFlight = false;
   var lastFetch = 0;
 
@@ -35,6 +36,7 @@
     );
 
     commentsList = document.querySelector('.site-stats__comments');
+    updatedElement = document.querySelector('.site-stats__updated');
     return !!(likeValue || commentValue || viewValue || commentsList);
   }
 
@@ -46,6 +48,26 @@
     var number = Number(value);
     if (!Number.isFinite(number)) return null;
     return number.toLocaleString('zh-CN');
+  }
+
+  function formatNow() {
+    var formatter = new Intl.DateTimeFormat('zh-CN', {
+      timeZone: 'Asia/Shanghai',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+    var parts = formatter.formatToParts(new Date()).reduce(function (result, part) {
+      result[part.type] = part.value;
+      return result;
+    }, {});
+    return (
+      parts.year + '/' + parts.month + '/' + parts.day + ' ' +
+      parts.hour + ':' + parts.minute
+    );
   }
 
   function normalizePath(value) {
@@ -147,9 +169,18 @@
       fetchJson('/api/comment?type=recent&count=5&t=' + now).then(function (data) {
         renderComments(data);
       })
-    ]).finally(function () {
-      inFlight = false;
-    });
+    ])
+      .then(function (results) {
+        var anySuccess = results.some(function (result) {
+          return result.status === 'fulfilled';
+        });
+        if (anySuccess && updatedElement) {
+          updatedElement.textContent = '数据更新于 ' + formatNow();
+        }
+      })
+      .finally(function () {
+        inFlight = false;
+      });
   }
 
   function start() {
@@ -159,6 +190,7 @@
     setDash(likeValue);
     setDash(commentValue);
     setDash(viewValue);
+    if (updatedElement) updatedElement.textContent = '数据更新于 —';
     refresh(true);
 
     window.addEventListener('pageshow', function (event) {
