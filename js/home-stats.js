@@ -14,6 +14,7 @@
   var recentList = null;
   var popularList = null;
   var popularLabel = null;
+  var likedList = null;
   var titleMap = {};
   var cardGroups = {};
   var cardPaths = [];
@@ -178,6 +179,49 @@
     }
   }
 
+  function renderHelpful(items) {
+    if (!likedList || !Array.isArray(items)) return;
+
+    if (!items.length) {
+      likedList.innerHTML =
+        '<li class="site-stats__empty">暂无点赞</li>';
+      return;
+    }
+
+    var fragment = document.createDocumentFragment();
+    items.forEach(function (item, index) {
+      if (!item || !item.url) return;
+
+      var li = document.createElement('li');
+      li.className = 'recent-panel__item';
+
+      var link = document.createElement('a');
+      link.href = item.url;
+
+      var rank = document.createElement('span');
+      rank.className = 'recent-panel__rank';
+      rank.textContent = String(index + 1).padStart(2, '0');
+
+      var title = document.createElement('span');
+      title.className = 'recent-panel__title';
+      title.textContent = displayTitle(item);
+
+      var time = document.createElement('span');
+      time.className = 'recent-panel__time';
+      time.textContent = formatTime(item.votedAt);
+
+      link.appendChild(rank);
+      link.appendChild(title);
+      link.appendChild(time);
+      li.appendChild(link);
+      fragment.appendChild(li);
+    });
+
+    if (fragment.childNodes.length) {
+      likedList.replaceChildren(fragment);
+    }
+  }
+
   function renderPopular(data) {
     if (
       !popularList ||
@@ -246,7 +290,7 @@
       })
       .join('&');
     var endpoint =
-      '/api/home-stats?recent=10&popular=10&days=30&t=' +
+      '/api/home-stats?recent=10&popular=10&helpful=10&days=30&t=' +
       now +
       (query ? '&' + query : '');
 
@@ -263,10 +307,19 @@
         if (!json || json.errno || !json.data) throw new Error('Waline error');
         renderCards(json.data.cards);
         renderRecent(json.data.recent);
+        renderHelpful(json.data.recentHelpful);
         renderPopular(json.data.popular);
       })
       .catch(function () {
-        // Keep the server-rendered fallback.
+        // Keep the server-rendered fallback; only the liked card has no
+        // server-rendered data, so stop showing "加载中…" on failure.
+        if (likedList) {
+          var placeholder = likedList.querySelector('.site-stats__empty');
+          if (placeholder && placeholder.textContent.indexOf('加载中') !== -1) {
+            likedList.innerHTML =
+              '<li class="site-stats__empty">暂无点赞</li>';
+          }
+        }
       })
       .finally(function () {
         inFlight = false;
@@ -274,10 +327,13 @@
   }
 
   function start() {
-    recentList = document.querySelector('.recent-panel__list');
+    recentList = document.querySelector(
+      '.recent-panel__list:not(.liked-panel__list)'
+    );
     popularList = document.querySelector('.popular-panel__list');
     popularLabel = document.querySelector('.popular-panel__head span');
-    if (!recentList && !popularList) return;
+    likedList = document.querySelector('.liked-panel__list');
+    if (!recentList && !popularList && !likedList) return;
 
     loadTitleMap();
     collectCards();
