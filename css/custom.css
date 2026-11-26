@@ -851,53 +851,6 @@ body.donate-modal-open {
   white-space: nowrap;
 }
 
-/* 首页最新评论 */
-.comments-panel__item a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.12rem;
-  padding: 0.3rem 0.1rem;
-  border-radius: 6px;
-  color: var(--text-p2);
-}
-
-.comments-panel__item a:hover {
-  background: var(--block);
-  color: var(--theme);
-}
-
-.comments-panel__meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.comments-panel__nick {
-  min-width: 0;
-  overflow: hidden;
-  color: var(--text-p1);
-  font-size: 0.78rem;
-  font-weight: 500;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.comments-panel__text {
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--text-p3);
-  font-size: 0.74rem;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-.comments-panel .site-stats__empty {
-  font-size: 0.76rem;
-}
-
 /* 首页近期热门（旧版内联样式，保留兼容） */
 body[data-page-type='index'] .widget-instance--recent {
   display: none;

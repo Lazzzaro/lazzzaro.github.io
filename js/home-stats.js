@@ -231,14 +231,6 @@
     }
   }
 
-  function cleanText(value) {
-    return String(value || '')
-      .replace(/<[^>]+>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 80);
-  }
-
   function renderComments(items) {
     if (!commentsList) return;
 
@@ -248,36 +240,41 @@
       return;
     }
 
-    var fragment = document.createDocumentFragment();
+    // 同一篇文章只保留最近一次评论，按时间从新到旧。
+    var seen = {};
+    var list = [];
     items.forEach(function (item) {
       if (!item || !item.url) return;
+      var url = normPath(item.url);
+      if (seen[url]) return;
+      seen[url] = true;
+      list.push({ url: url, time: item.time });
+    });
+    list = list.slice(0, 10);
 
+    var fragment = document.createDocumentFragment();
+    list.forEach(function (item, index) {
       var li = document.createElement('li');
-      li.className = 'comments-panel__item';
+      li.className = 'recent-panel__item';
 
       var link = document.createElement('a');
-      link.href = normPath(item.url);
-      link.title = '评论于：' + displayTitle(item);
+      link.href = item.url;
 
-      var meta = document.createElement('span');
-      meta.className = 'comments-panel__meta';
+      var rank = document.createElement('span');
+      rank.className = 'recent-panel__rank';
+      rank.textContent = String(index + 1).padStart(2, '0');
 
-      var nick = document.createElement('strong');
-      nick.className = 'comments-panel__nick';
-      nick.textContent = item.nick || '匿名';
+      var title = document.createElement('span');
+      title.className = 'recent-panel__title';
+      title.textContent = displayTitle(item);
 
       var time = document.createElement('span');
       time.className = 'recent-panel__time';
       time.textContent = formatTime(item.time);
 
-      var text = document.createElement('span');
-      text.className = 'comments-panel__text';
-      text.textContent = cleanText(item.orig || item.comment || '');
-
-      meta.appendChild(nick);
-      meta.appendChild(time);
-      link.appendChild(meta);
-      link.appendChild(text);
+      link.appendChild(rank);
+      link.appendChild(title);
+      link.appendChild(time);
       li.appendChild(link);
       fragment.appendChild(li);
     });
@@ -345,7 +342,7 @@
   }
 
   function fetchComments(now) {
-    return fetch(SERVER_URL + '/api/comment?type=recent&count=5&t=' + now, {
+    return fetch(SERVER_URL + '/api/comment?type=recent&count=30&t=' + now, {
       cache: 'no-store',
       credentials: 'omit',
       headers: { Accept: 'application/json' }
