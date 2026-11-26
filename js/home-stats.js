@@ -3,6 +3,7 @@
  *   - post card views / helpful counts
  *   - "最新阅读"
  *   - "近期热门"
+ * plus /api/comment?type=recent for "最新评论".
  *
  * Server-rendered counts and lists are the initial fallback.
  */
@@ -15,7 +16,13 @@
   var popularList = null;
   var popularLabel = null;
   var likedList = null;
+  var commentsList = null;
   var titleMap = {};
+  var PAGE_TITLES = {
+    '/guestbook/': '留言板',
+    '/stats/': '站点数据',
+    '/links/': '友链'
+  };
   var cardGroups = {};
   var cardPaths = [];
   var inFlight = false;
@@ -34,9 +41,11 @@
   function displayTitle(item) {
     if (!item) return '';
     if (titleMap[item.url]) return titleMap[item.url];
+    if (PAGE_TITLES[item.url]) return PAGE_TITLES[item.url];
     try {
       var decoded = decodeURIComponent(item.url || '');
       if (titleMap[decoded]) return titleMap[decoded];
+      if (PAGE_TITLES[decoded]) return PAGE_TITLES[decoded];
     } catch (error) {
       void error;
     }
@@ -222,6 +231,65 @@
     }
   }
 
+  function cleanText(value) {
+    return String(value || '')
+      .replace(/<[^>]+>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 80);
+  }
+
+  function renderComments(items) {
+    if (!commentsList) return;
+
+    if (!Array.isArray(items) || !items.length) {
+      commentsList.innerHTML =
+        '<li class="site-stats__empty">暂无评论</li>';
+      return;
+    }
+
+    var fragment = document.createDocumentFragment();
+    items.forEach(function (item) {
+      if (!item || !item.url) return;
+
+      var li = document.createElement('li');
+      li.className = 'comments-panel__item';
+
+      var link = document.createElement('a');
+      link.href = normPath(item.url);
+      link.title = '评论于：' + displayTitle(item);
+
+      var meta = document.createElement('span');
+      meta.className = 'comments-panel__meta';
+
+      var nick = document.createElement('strong');
+      nick.className = 'comments-panel__nick';
+      nick.textContent = item.nick || '匿名';
+
+      var time = document.createElement('span');
+      time.className = 'recent-panel__time';
+      time.textContent = formatTime(item.time);
+
+      var text = document.createElement('span');
+      text.className = 'comments-panel__text';
+      text.textContent = cleanText(item.orig || item.comment || '');
+
+      meta.appendChild(nick);
+      meta.appendChild(time);
+      link.appendChild(meta);
+      link.appendChild(text);
+      li.appendChild(link);
+      fragment.appendChild(li);
+    });
+
+    if (fragment.childNodes.length) {
+      commentsList.replaceChildren(fragment);
+    } else {
+      commentsList.innerHTML =
+        '<li class="site-stats__empty">暂无评论</li>';
+    }
+  }
+
   function renderPopular(data) {
     if (
       !popularList ||
@@ -276,6 +344,30 @@
     }
   }
 
+  function fetchComments(now) {
+    return fetch(SERVER_URL + '/api/comment?type=recent&count=5&t=' + now, {
+      cache: 'no-store',
+      credentials: 'omit',
+      headers: { Accept: 'application/json' }
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Waline HTTP ' + response.status);
+        return response.json();
+      })
+      .then(function (json) {
+        if (!json || json.errno) throw new Error('Waline error');
+        renderComments(json.data);
+      })
+      .catch(function () {
+        if (!commentsList) return;
+        var placeholder = commentsList.querySelector('.site-stats__empty');
+        if (placeholder && placeholder.textContent.indexOf('加载中') !== -1) {
+          commentsList.innerHTML =
+            '<li class="site-stats__empty">暂无评论</li>';
+        }
+      });
+  }
+
   function refresh(force) {
     if (document.hidden || inFlight) return;
 
@@ -294,46 +386,52 @@
       now +
       (query ? '&' + query : '');
 
-    fetch(SERVER_URL + endpoint, {
-      cache: 'no-store',
-      credentials: 'omit',
-      headers: { Accept: 'application/json' }
-    })
-      .then(function (response) {
-        if (!response.ok) throw new Error('Waline HTTP ' + response.status);
-        return response.json();
+    var requests = [
+      fetch(SERVER_URL + endpoint, {
+        cache: 'no-store',
+        credentials: 'omit',
+        headers: { Accept: 'application/json' }
       })
-      .then(function (json) {
-        if (!json || json.errno || !json.data) throw new Error('Waline error');
-        renderCards(json.data.cards);
-        renderRecent(json.data.recent);
-        renderHelpful(json.data.recentHelpful);
-        renderPopular(json.data.popular);
-      })
-      .catch(function () {
-        // Keep the server-rendered fallback; only the liked card has no
-        // server-rendered data, so stop showing "加载中…" on failure.
-        if (likedList) {
-          var placeholder = likedList.querySelector('.site-stats__empty');
-          if (placeholder && placeholder.textContent.indexOf('加载中') !== -1) {
-            likedList.innerHTML =
-              '<li class="site-stats__empty">暂无点赞</li>';
+        .then(function (response) {
+          if (!response.ok) throw new Error('Waline HTTP ' + response.status);
+          return response.json();
+        })
+        .then(function (json) {
+          if (!json || json.errno || !json.data) throw new Error('Waline error');
+          renderCards(json.data.cards);
+          renderRecent(json.data.recent);
+          renderHelpful(json.data.recentHelpful);
+          renderPopular(json.data.popular);
+        })
+        .catch(function () {
+          // Keep the server-rendered fallback; the liked card has no
+          // server-rendered data, so stop showing "加载中…" on failure.
+          if (likedList) {
+            var placeholder = likedList.querySelector('.site-stats__empty');
+            if (placeholder && placeholder.textContent.indexOf('加载中') !== -1) {
+              likedList.innerHTML =
+                '<li class="site-stats__empty">暂无点赞</li>';
+            }
           }
-        }
-      })
-      .finally(function () {
-        inFlight = false;
-      });
+        })
+    ];
+
+    if (commentsList) requests.push(fetchComments(now));
+
+    Promise.allSettled(requests).then(function () {
+      inFlight = false;
+    });
   }
 
   function start() {
     recentList = document.querySelector(
-      '.recent-panel__list:not(.liked-panel__list)'
+      '.recent-panel__list:not(.liked-panel__list):not(.comments-panel__list)'
     );
     popularList = document.querySelector('.popular-panel__list');
     popularLabel = document.querySelector('.popular-panel__head span');
     likedList = document.querySelector('.liked-panel__list');
-    if (!recentList && !popularList && !likedList) return;
+    commentsList = document.querySelector('.comments-panel__list');
+    if (!recentList && !popularList && !likedList && !commentsList) return;
 
     loadTitleMap();
     collectCards();
